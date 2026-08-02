@@ -2,8 +2,8 @@ import type { Route } from "./+types/index";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Profile" },
-    { name: "description", content: "Profile site" },
+    { title: "Dimterion | Profile" },
+    { name: "description", content: "Dimterion's profile" },
   ];
 }
 
