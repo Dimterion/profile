@@ -44,7 +44,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <Header />
-        <main>{children}</main>
+        <main className="md:max-w-7xl mx-auto">{children}</main>
         <Navbar />
         <ScrollRestoration />
         <Scripts />
