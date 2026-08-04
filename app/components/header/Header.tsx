@@ -3,11 +3,13 @@ import { HouseIcon } from "./icons";
 
 export default function Header() {
   return (
-    <header className="fixed top-1 left-1 z-50 md:top-8 md:left-8">
+    <header>
       <NavLink
         to="/"
+        end
+        aria-label="Home"
         className={({ isActive }) =>
-          `inline-flex h-7 w-7 items-center justify-center md:h-10 md:w-10 ${isActive ? "border-2" : "border"}`
+          `m-1 inline-flex h-7 w-7 items-center justify-center md:h-10 md:w-10 ${isActive ? "border-2" : "border"}`
         }
       >
         <HouseIcon />

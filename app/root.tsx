@@ -42,11 +42,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="flex min-h-screen flex-col justify-between">
         <Header />
-        <main className="mx-auto grid min-h-screen w-full place-items-center p-4 md:max-w-5xl">
-          {children}
-        </main>
+        <main className="mx-auto p-4 md:max-w-5xl">{children}</main>
         <Navbar />
         <ScrollRestoration />
         <Scripts />
