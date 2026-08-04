@@ -44,7 +44,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <Header />
-        <main className="mx-auto grid min-h-screen w-full max-w-7xl place-items-center p-1">
+        <main className="mx-auto grid min-h-screen w-full place-items-center p-4 md:max-w-5xl">
           {children}
         </main>
         <Navbar />
