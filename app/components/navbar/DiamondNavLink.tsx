@@ -23,7 +23,7 @@ export default function DiamondNavItem({
     <NavLink
       to={to}
       className={({ isActive }) =>
-        `absolute inline-flex h-10 w-10 rotate-45 items-center justify-center ${
+        `absolute inline-flex h-7 w-7 rotate-45 items-center justify-center md:h-10 md:w-10 ${
           positionClasses[position]
         } ${isActive ? "border-2" : "border"}`
       }

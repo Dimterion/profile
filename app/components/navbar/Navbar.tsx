@@ -8,7 +8,7 @@ import {
 
 export default function Navbar() {
   return (
-    <nav className="fixed right-8 bottom-8 z-50 h-25 w-25">
+    <nav className="fixed right-4 bottom-4 z-50 md:h-25 md:w-25 h-18 w-18 md:right-8 md:bottom-8">
       <DiamondNavLink to="/projects" position="top">
         <HammerIcon />
       </DiamondNavLink>

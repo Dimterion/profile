@@ -44,7 +44,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <Header />
-        <main className="md:max-w-7xl mx-auto">{children}</main>
+        <main className="mx-auto grid min-h-screen w-full max-w-7xl place-items-center p-1">
+          {children}
+        </main>
         <Navbar />
         <ScrollRestoration />
         <Scripts />
