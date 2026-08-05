@@ -74,7 +74,7 @@ export default function Navbar() {
           aria-expanded={menuOpen}
           aria-controls="mobile-navigation"
           onClick={() => setMenuOpen((prev) => !prev)}
-          className="inline-flex h-9 w-9 items-center justify-center border"
+          className="inline-flex h-9 w-9 cursor-pointer items-center justify-center border"
         >
           {menuOpen ? <CloseIcon /> : <MenuIcon />}
         </button>

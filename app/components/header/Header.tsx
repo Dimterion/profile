@@ -1,9 +1,11 @@
 import { NavLink } from "react-router";
 import { HouseIcon } from "./icons";
+import profileImg from "../../assets/images/profile_img.png";
 
 export default function Header() {
   return (
-    <header>
+    <header className="inline-flex justify-between">
+      <img src={profileImg} alt="Profile image" className="h-40 w-40" />
       <NavLink
         to="/"
         end
