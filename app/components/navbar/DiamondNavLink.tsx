@@ -26,8 +26,8 @@ export default function DiamondNavLink({
   return (
     <NavLink
       to={to}
-      aria-label={label}
       end={to === "/"}
+      aria-label={label}
       className={({ isActive }) =>
         [
           "inline-flex h-7 w-7 rotate-45 items-center justify-center",

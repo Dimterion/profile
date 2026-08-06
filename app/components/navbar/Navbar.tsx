@@ -65,7 +65,7 @@ export default function Navbar() {
       </nav>
 
       {/* Mobile navigation */}
-      <div className="m-3 inline-flex items-center gap-3 md:hidden">
+      <div className="m-3 inline-flex items-center gap-4 md:hidden">
         <button
           type="button"
           aria-label={
@@ -74,9 +74,15 @@ export default function Navbar() {
           aria-expanded={menuOpen}
           aria-controls="mobile-navigation"
           onClick={() => setMenuOpen((previous) => !previous)}
-          className="inline-flex h-9 w-9 shrink-0 items-center justify-center border"
+          className="inline-flex h-7 w-7 shrink-0 rotate-45 items-center justify-center border"
         >
-          {menuOpen ? <CloseIcon /> : <MenuIcon />}
+          <span className="-rotate-45">
+            {menuOpen ? (
+              <CloseIcon className="h-4 w-4" />
+            ) : (
+              <MenuIcon className="h-4 w-4" />
+            )}
+          </span>
         </button>
 
         {menuOpen && (
