@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NavLink, useLocation } from "react-router";
+import { useLocation } from "react-router";
 import DiamondNavLink from "./DiamondNavLink";
 import {
   HammerIcon,
@@ -65,7 +65,7 @@ export default function Navbar() {
       </nav>
 
       {/* Mobile navigation */}
-      <div className="m-3 inline-flex gap-1 md:hidden">
+      <div className="m-3 inline-flex items-center gap-3 md:hidden">
         <button
           type="button"
           aria-label={
@@ -73,8 +73,8 @@ export default function Navbar() {
           }
           aria-expanded={menuOpen}
           aria-controls="mobile-navigation"
-          onClick={() => setMenuOpen((prev) => !prev)}
-          className="inline-flex h-9 w-9 cursor-pointer items-center justify-center border"
+          onClick={() => setMenuOpen((previous) => !previous)}
+          className="inline-flex h-9 w-9 shrink-0 items-center justify-center border"
         >
           {menuOpen ? <CloseIcon /> : <MenuIcon />}
         </button>
@@ -83,21 +83,12 @@ export default function Navbar() {
           <nav
             id="mobile-navigation"
             aria-label="Mobile navigation"
-            className="flex flex-row gap-1"
+            className="flex flex-row gap-4"
           >
             {navItems.map((item) => (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                aria-label={item.label}
-                className={({ isActive }) =>
-                  `inline-flex h-9 w-9 items-center justify-center border ${
-                    isActive ? "border-2" : "border"
-                  }`
-                }
-              >
+              <DiamondNavLink key={item.to} to={item.to} label={item.label}>
                 {item.icon}
-              </NavLink>
+              </DiamondNavLink>
             ))}
           </nav>
         )}
