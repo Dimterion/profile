@@ -12,6 +12,7 @@ import "./app.css";
 
 import Header from "./components/header/Header";
 import Navbar from "./components/navbar/Navbar";
+import SocialLinks from "./components/social/SocialLinks";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -46,6 +47,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Header />
         <main className="mx-auto p-4 md:max-w-5xl">{children}</main>
         <Navbar />
+        <SocialLinks />
         <ScrollRestoration />
         <Scripts />
       </body>

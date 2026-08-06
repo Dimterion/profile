@@ -65,7 +65,7 @@ export default function Navbar() {
       </nav>
 
       {/* Mobile navigation */}
-      <div className="m-3 inline-flex items-center gap-4 md:hidden">
+      <div className="m-3 inline-flex flex-col-reverse items-center gap-4 self-start md:hidden">
         <button
           type="button"
           aria-label={
@@ -89,7 +89,7 @@ export default function Navbar() {
           <nav
             id="mobile-navigation"
             aria-label="Mobile navigation"
-            className="flex flex-row gap-4"
+            className="flex flex-col items-center gap-4"
           >
             {navItems.map((item) => (
               <DiamondNavLink key={item.to} to={item.to} label={item.label}>
