@@ -26,7 +26,7 @@ const socialLinks = [
 
 export default function SocialLinks() {
   return (
-    <nav
+    <section
       aria-label="Social links"
       className="fixed right-3 bottom-3 z-50 md:right-4 md:bottom-4"
     >
@@ -49,6 +49,6 @@ export default function SocialLinks() {
           </li>
         ))}
       </ul>
-    </nav>
+    </section>
   );
 }
