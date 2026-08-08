@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
 import Header from "../../components/header/Header";
-import Navbar from "../../components/navbar/Navbar";
-import SocialLinks from "../../components/social/SocialLinks";
+import Footer from "~/components/footer/Footer";
 
 type SiteLayoutProps = {
   children: ReactNode;
@@ -20,8 +19,7 @@ export default function SiteLayout({
         {children}
       </main>
 
-      <Navbar />
-      <SocialLinks />
+      <Footer />
     </div>
   );
 }
