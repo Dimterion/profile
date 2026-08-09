@@ -1,8 +1,12 @@
+import { Link } from "react-router";
 import type { Project } from "~/types";
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="border">
+    <Link
+      to={`/projects/${project.id}`}
+      className="block transform border transition duration-100 hover:scale-[1.01]"
+    >
       <h3 className="font-semibold">{project.title}</h3>
       <img
         src={project.image.link}
@@ -11,6 +15,6 @@ export default function ProjectCard({ project }: { project: Project }) {
         className="w-full object-cover"
       />
       <p>{project.description}</p>
-    </article>
+    </Link>
   );
 }
