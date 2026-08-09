@@ -7,7 +7,7 @@ export default function ProjectsPage() {
   return (
     <>
       <h2 className="font-bold">Projects</h2>
-      <section className="flex flex-wrap gap-4">
+      <section className="grid gap-6 sm:grid-cols-3 my-6">
         {projects.map((project) => (
           <article key={project.id} className="border">
             <h3 className="font-semibold">{project.title}</h3>
