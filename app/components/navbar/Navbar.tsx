@@ -16,6 +16,7 @@ const navItems = [
     label: "Projects",
     icon: <HammerIcon />,
     position: "top" as const,
+    end: true,
   },
   {
     to: "/posts",
@@ -58,6 +59,7 @@ export default function Navbar() {
             to={item.to}
             position={item.position}
             label={item.label}
+            end={item.end}
           >
             {item.icon}
           </DiamondNavLink>
@@ -92,7 +94,12 @@ export default function Navbar() {
             className="flex flex-col items-center gap-4"
           >
             {navItems.map((item) => (
-              <DiamondNavLink key={item.to} to={item.to} label={item.label}>
+              <DiamondNavLink
+                key={item.to}
+                to={item.to}
+                label={item.label}
+                end={item.end}
+              >
                 {item.icon}
               </DiamondNavLink>
             ))}

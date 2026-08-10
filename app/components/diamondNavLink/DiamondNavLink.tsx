@@ -7,6 +7,7 @@ type DiamondNavLinkProps = {
   to: string;
   position?: Position;
   label: string;
+  end?: boolean;
   children: ReactNode;
 };
 
@@ -21,12 +22,13 @@ export default function DiamondNavLink({
   to,
   position,
   label,
+  end = false,
   children,
 }: DiamondNavLinkProps) {
   return (
     <NavLink
       to={to}
-      end={to === "/"}
+      end={end || to === "/"}
       aria-label={label}
       className={({ isActive }) =>
         [
