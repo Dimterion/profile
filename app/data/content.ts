@@ -1,9 +1,9 @@
-import ispMainImg from "../app/assets/images/isp_main_img.png";
-import personalSiteMainImg from "../app/assets/images/personal_site_main_img.png";
-import storiesSiteMainImg from "../app/assets/images/stories_site_main_img.png";
-import mediumProfileMainImg from "../app/assets/images/medium_profile_main_img.png";
-import githubProfileMainImg from "../app/assets/images/github_profile_main_img.png";
-import potwMainImg from "../app/assets/images/potw_main_img.png";
+import ispMainImg from "../assets/images/isp_main_img.png";
+import personalSiteMainImg from "../assets/images/personal_site_main_img.png";
+import storiesSiteMainImg from "../assets/images/stories_site_main_img.png";
+import mediumProfileMainImg from "../assets/images/medium_profile_main_img.png";
+import githubProfileMainImg from "../assets/images/github_profile_main_img.png";
+import potwMainImg from "../assets/images/potw_main_img.png";
 
 export const siteText = {
   en: {
@@ -18,6 +18,7 @@ export const siteText = {
       items: [
         {
           id: "project-01",
+          slug: "interactive-stories-platform",
           buttonLabel: "1",
           label: "Interactive Storytelling",
           title: "Interactive Stories Platform",
@@ -41,6 +42,7 @@ export const siteText = {
         },
         {
           id: "project-02",
+          slug: "dimterion-com",
           buttonLabel: "2",
           label: "Personal Site",
           title: "dimterion.com",
@@ -64,6 +66,7 @@ export const siteText = {
         },
         {
           id: "project-03",
+          slug: "dimterions-stories",
           buttonLabel: "3",
           label: "Storytelling",
           title: "Dimterion's Stories",
@@ -86,6 +89,7 @@ export const siteText = {
         },
         {
           id: "project-04",
+          slug: "medium-blog",
           buttonLabel: "4",
           label: "Tech Writing",
           title: "Medium Blog",
@@ -104,6 +108,7 @@ export const siteText = {
         },
         {
           id: "project-05",
+          slug: "daily-contributions-and-ongoing-work",
           buttonLabel: "5",
           label: "Coding and Development",
           title: "Daily Contributions and Ongoing Work",
@@ -123,6 +128,7 @@ export const siteText = {
         },
         {
           id: "project-06",
+          slug: "poets-of-tomorrows-world",
           buttonLabel: "6",
           label: "Interactive Text Adventures",
           title: "Poets of Tomorrow’s World",
@@ -168,6 +174,7 @@ export const siteText = {
       items: [
         {
           id: "project-01",
+          slug: "interactive-stories-platform",
           buttonLabel: "1",
           label: "Narration interactive",
           title: "Plateforme d’histoires interactives",
@@ -192,6 +199,7 @@ export const siteText = {
         },
         {
           id: "project-02",
+          slug: "dimterion-com",
           buttonLabel: "2",
           label: "Site personnel",
           title: "dimterion.com",
@@ -215,6 +223,7 @@ export const siteText = {
         },
         {
           id: "project-03",
+          slug: "dimterions-stories",
           buttonLabel: "3",
           label: "Histoires",
           title: "Les histoires de Dimterion",
@@ -238,6 +247,7 @@ export const siteText = {
         },
         {
           id: "project-04",
+          slug: "medium-blog",
           buttonLabel: "4",
           label: "Rédaction technique",
           title: "Blog Medium",
@@ -257,6 +267,7 @@ export const siteText = {
         },
         {
           id: "project-05",
+          slug: "daily-contributions-and-ongoing-work",
           buttonLabel: "5",
           label: "Code et développement",
           title: "Contributions quotidiennes et travail en continu",
@@ -276,6 +287,7 @@ export const siteText = {
         },
         {
           id: "project-06",
+          slug: "poets-of-tomorrows-world",
           buttonLabel: "6",
           label: "Aventures textuelles interactives",
           title: "Poets of Tomorrow’s World",

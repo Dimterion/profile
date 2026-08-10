@@ -10,7 +10,7 @@ export default [
 
   layout("./routes/layouts/main.tsx", [
     route("projects", "./routes/projects/index.tsx"),
-    route("projects/:id", "./routes/projects/details.tsx"),
+    route("projects/:slug", "./routes/projects/details.tsx"),
     route("posts", "./routes/posts/index.tsx"),
     route("about", "./routes/about/index.tsx"),
     route("contact", "./routes/contact/index.tsx"),

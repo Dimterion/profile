@@ -1,5 +1,5 @@
 import type { Project } from "~/types";
-import { siteText } from "../../../data/content";
+import { siteText } from "../../data/content";
 import ProjectCard from "~/components/projectCard/ProjectCard";
 
 export default function ProjectsPage() {
