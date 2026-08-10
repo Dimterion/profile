@@ -1,5 +1,5 @@
 import profileImg from "../../assets/images/profile_img.png";
-import DiamondNavLink from "../navbar/DiamondNavLink";
+import DiamondNavLink from "../diamondNavLink/DiamondNavLink";
 import { HouseIcon } from "./icons";
 
 type HeaderProps = {
