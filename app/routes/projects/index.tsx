@@ -1,9 +1,15 @@
-import type { Project } from "~/types";
+import type { Route } from "./+types/index";
 import { siteText } from "../../data/content";
 import ProjectCard from "~/components/projectCard/ProjectCard";
 
-export default function ProjectsPage() {
-  const projects: Project[] = siteText.en.projects.items;
+export async function loader({}: Route.LoaderArgs) {
+  return {
+    projects: siteText.en.projects.items,
+  };
+}
+
+export default function ProjectsPage({ loaderData }: Route.ComponentProps) {
+  const { projects } = loaderData;
 
   return (
     <>

@@ -1,16 +1,23 @@
-import { useParams } from "react-router";
-import type { Project } from "~/types";
+import type { Route } from "./+types/details";
+import { data } from "react-router";
 import { siteText } from "../../data/content";
 
-export default function ProjectDetailsPage() {
-  const { slug } = useParams();
-
-  const projects: Project[] = siteText.en.projects.items;
-  const project = projects.find((item) => item.slug === slug);
+export async function loader({ params }: Route.LoaderArgs) {
+  const project = siteText.en.projects.items.find(
+    (item) => item.slug === params.slug,
+  );
 
   if (!project) {
-    return <p>Project not found.</p>;
+    throw data("Project not found", { status: 404 });
   }
+
+  return { project };
+}
+
+export default function ProjectDetailsPage({
+  loaderData,
+}: Route.ComponentProps) {
+  const { project } = loaderData;
 
   return (
     <article>
