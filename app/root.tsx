@@ -6,10 +6,12 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useNavigate,
 } from "react-router";
 
 import type { Route } from "./+types/root";
 import "./app.css";
+import { ArrowLeftIcon } from "./components/icons";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -55,6 +57,8 @@ export default function App() {
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
+  const navigate = useNavigate();
+
   let message = "Oops!";
   let details = "An unexpected error occurred.";
   let stack: string | undefined;
@@ -79,9 +83,19 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
           <code>{stack}</code>
         </pre>
       )}
-      <Link to="/" className="border px-2">
-        Home page
-      </Link>
+      <div className="mt-4 flex w-30 flex-col gap-4">
+        <Link to="/" className="border px-2 text-center">
+          Home page
+        </Link>
+        <button
+          type="button"
+          onClick={() => navigate(-1)}
+          aria-label="Go back"
+          className="flex cursor-pointer items-center justify-around border px-2"
+        >
+          <ArrowLeftIcon /> Back
+        </button>
+      </div>
     </main>
   );
 }
