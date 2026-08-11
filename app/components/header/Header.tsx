@@ -1,7 +1,7 @@
 import type { HeaderProps } from "~/types";
 import profileImg from "../../assets/images/profile_img.png";
 import DiamondNavLink from "../diamondNavLink/DiamondNavLink";
-import { HouseIcon } from "../icons/icons";
+import { HouseIcon } from "~/components/icons";
 
 const diamondClip = {
   clipPath: "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)",

@@ -3,7 +3,7 @@ import {
   LinkedinIcon,
   InstagramIcon,
   MailIcon,
-} from "../icons/icons";
+} from "~/components/icons";
 
 const socialLinks = [
   {
