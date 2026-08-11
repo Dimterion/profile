@@ -1,5 +1,5 @@
 import type { Route } from "./+types/details";
-import { data } from "react-router";
+import { data, Link } from "react-router";
 import { siteText } from "../../data/content";
 
 export async function loader({ params }: Route.LoaderArgs) {
@@ -21,6 +21,7 @@ export default function ProjectDetailsPage({
 
   return (
     <article>
+      <Link to="/projects">Back</Link>
       <h1>{project.title}</h1>
       <img src={project.image.link} alt={project.image.description} />
       <p>{project.description}</p>

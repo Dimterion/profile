@@ -8,7 +8,7 @@ import {
   FeatherIcon,
   CloseIcon,
   MenuIcon,
-} from "./icons";
+} from "../icons/icons";
 
 const navItems = [
   {

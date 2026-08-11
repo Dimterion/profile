@@ -1,4 +1,9 @@
-import { GithubIcon, LinkedinIcon, InstagramIcon, MailIcon } from "./icons";
+import {
+  GithubIcon,
+  LinkedinIcon,
+  InstagramIcon,
+  MailIcon,
+} from "../icons/icons";
 
 const socialLinks = [
   {
