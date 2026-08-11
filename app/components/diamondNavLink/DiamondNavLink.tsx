@@ -1,15 +1,5 @@
-import type { ReactNode } from "react";
 import { NavLink } from "react-router";
-
-type Position = "top" | "right" | "bottom" | "left";
-
-type DiamondNavLinkProps = {
-  to: string;
-  position?: Position;
-  label: string;
-  end?: boolean;
-  children: ReactNode;
-};
+import type { DiamondNavLinkProps, Position } from "~/types";
 
 const positionClasses: Record<Position, string> = {
   top: "top-0 left-1/2 -translate-x-1/2",

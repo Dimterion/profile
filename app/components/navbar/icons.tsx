@@ -1,6 +1,4 @@
-type IconProps = {
-  className?: string;
-};
+import type { IconProps } from "~/types";
 
 export function HammerIcon({ className = "h-5 w-5" }: IconProps) {
   return (

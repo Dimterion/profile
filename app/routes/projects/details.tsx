@@ -22,9 +22,7 @@ export default function ProjectDetailsPage({
   return (
     <article>
       <h1>{project.title}</h1>
-
       <img src={project.image.link} alt={project.image.description} />
-
       <p>{project.description}</p>
     </article>
   );

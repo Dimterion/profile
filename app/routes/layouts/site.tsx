@@ -1,11 +1,6 @@
-import type { ReactNode } from "react";
+import type { SiteLayoutProps } from "~/types";
 import Header from "../../components/header/Header";
 import Footer from "~/components/footer/Footer";
-
-type SiteLayoutProps = {
-  children: ReactNode;
-  showPortrait?: boolean;
-};
 
 export default function SiteLayout({
   children,
