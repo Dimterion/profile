@@ -21,13 +21,30 @@ export default function ProjectDetailsPage({
   const { project } = loaderData;
 
   return (
-    <article>
-      <Link to="/projects">
-        <ArrowLeftIcon />
+    <article className="space-y-2">
+      <Link to="/projects" className="flex w-fit items-center gap-2 border p-2">
+        <ArrowLeftIcon /> Back to projects
       </Link>
       <h1>{project.title}</h1>
       <img src={project.image.link} alt={project.image.description} />
+      <div className="space-x-2">
+        {project.stack.map((item) => (
+          <span className="border px-2 py-1">{item}</span>
+        ))}
+      </div>
       <p>{project.description}</p>
+      <div className="flex flex-col gap-2">
+        {project.links.map((link) => (
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={link.href}
+            className="underline"
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
     </article>
   );
 }
