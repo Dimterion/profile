@@ -59,7 +59,10 @@ export default function ProjectsPage({ loaderData }: Route.ComponentProps) {
           </button>
         ))}
       </div>
-      <section className="my-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <section
+        key={`${selectedCategory}-${currentPage}`}
+        className="projects-grid-enter my-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+      >
         {currentProjects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}

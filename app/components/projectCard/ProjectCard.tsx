@@ -5,7 +5,7 @@ export default function ProjectCard({ project }: { project: Project }) {
   return (
     <Link
       to={`/projects/${project.slug}`}
-      className="block transform border transition duration-100 hover:scale-[1.01]"
+      className="project-card-enter block transform border transition duration-100 hover:scale-[1.01]"
     >
       <h3 className="font-semibold">{project.title}</h3>
       <img
