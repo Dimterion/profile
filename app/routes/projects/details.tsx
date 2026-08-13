@@ -3,6 +3,13 @@ import { data, Link } from "react-router";
 import { siteText } from "../../data/content";
 import { ArrowLeftIcon } from "~/components/icons/icons";
 
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "Dimterion | Projects" },
+    { name: "description", content: "Dimterion's projects" },
+  ];
+}
+
 export async function loader({ params }: Route.LoaderArgs) {
   const project = siteText.en.projects.items.find(
     (item) => item.slug === params.slug,

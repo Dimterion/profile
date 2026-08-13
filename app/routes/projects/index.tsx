@@ -4,6 +4,13 @@ import { siteText } from "../../data/content";
 import ProjectCard from "~/components/projectCard/ProjectCard";
 import Pagination from "~/components/pagination/Pagination";
 
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "Dimterion | Projects" },
+    { name: "description", content: "Dimterion's projects" },
+  ];
+}
+
 export async function loader({}: Route.LoaderArgs) {
   return {
     projects: siteText.en.projects.items,
@@ -36,7 +43,7 @@ export default function ProjectsPage({ loaderData }: Route.ComponentProps) {
   return (
     <>
       <h2 className="font-bold">Projects</h2>
-      <div className="mb-8 flex flex-wrap gap-2">
+      <div className="my-4 flex flex-wrap gap-2">
         {categories.map((category) => (
           <button
             key={category}
@@ -44,6 +51,7 @@ export default function ProjectsPage({ loaderData }: Route.ComponentProps) {
               setSelectedCategory(category);
               setCurrentPage(1);
             }}
+            className={`cursor-pointer px-3 py-1 text-sm text-white ${selectedCategory === category ? "bg-gray-600" : "bg-gray-400"}`}
           >
             {category}
           </button>
