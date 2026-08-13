@@ -11,20 +11,44 @@ export async function loader({}: Route.LoaderArgs) {
 }
 
 export default function ProjectsPage({ loaderData }: Route.ComponentProps) {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const projectsPerPage = 6;
   const { projects } = loaderData;
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const projectsPerPage = 6;
+  const categories = [
+    "All",
+    ...new Set(projects.flatMap((project) => project.stack)),
+  ];
 
-  const totalPages = Math.ceil(projects.length / projectsPerPage);
+  const filteredProjects =
+    selectedCategory === "All"
+      ? projects
+      : projects.filter((project) => project.stack.includes(selectedCategory));
+
+  const totalPages = Math.ceil(filteredProjects.length / projectsPerPage);
 
   const indexOfLast = currentPage * projectsPerPage;
   const indexOfFirst = indexOfLast - projectsPerPage;
-  const currentProjects = projects.slice(indexOfFirst, indexOfLast);
+  const currentProjects = filteredProjects.slice(indexOfFirst, indexOfLast);
 
   return (
     <>
       <h2 className="font-bold">Projects</h2>
+      <div className="mb-8 flex flex-wrap gap-2">
+        {categories.map((category) => (
+          <button
+            key={category}
+            onClick={() => {
+              setSelectedCategory(category);
+              setCurrentPage(1);
+            }}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
       <section className="my-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {currentProjects.map((project) => (
           <ProjectCard key={project.id} project={project} />
