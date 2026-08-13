@@ -6,11 +6,13 @@ import Pagination from "~/components/pagination/Pagination";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Dimterion | Projects" },
-    { name: "description", content: "Dimterion's projects" },
+    { title: "Projects | Dimterion" },
+    {
+      name: "description",
+      content: "A selection of Dimterion's web development projects.",
+    },
   ];
 }
-
 export async function loader({}: Route.LoaderArgs) {
   return {
     projects: siteText.en.projects.items,

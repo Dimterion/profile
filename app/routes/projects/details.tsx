@@ -3,10 +3,25 @@ import { data, Link } from "react-router";
 import { siteText } from "../../data/content";
 import { ArrowLeftIcon } from "~/components/icons/icons";
 
-export function meta({}: Route.MetaArgs) {
+export function meta({ loaderData }: Route.MetaArgs) {
+  const project = loaderData?.project;
+
+  if (!project) {
+    return [
+      { title: "Project not found | Dimterion" },
+      {
+        name: "description",
+        content: "The requested project could not be found.",
+      },
+    ];
+  }
+
   return [
-    { title: "Dimterion | Projects" },
-    { name: "description", content: "Dimterion's projects" },
+    { title: `${project.title} | Dimterion` },
+    {
+      name: "description",
+      content: project.description,
+    },
   ];
 }
 
@@ -44,7 +59,9 @@ export default function ProjectDetailsPage({
           <h1 className="mb-4 text-3xl font-bold">{project.title}</h1>
           <div className="mb-4 space-x-2">
             {project.stack.map((item) => (
-              <span className="border px-2 py-1">{item}</span>
+              <span key={item} className="border px-2 py-1">
+                {item}
+              </span>
             ))}
           </div>
           <p className="mb-6">{project.description}</p>
@@ -53,6 +70,7 @@ export default function ProjectDetailsPage({
       <div className="flex gap-2">
         {project.links.map((link) => (
           <a
+            key={link.href}
             target="_blank"
             rel="noopener noreferrer"
             href={link.href}
