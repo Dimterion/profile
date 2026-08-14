@@ -20,6 +20,7 @@ export const siteText = {
           id: "project-01",
           slug: "interactive-stories-platform",
           buttonLabel: "1",
+          featured: true,
           label: "Interactive Storytelling",
           title: "Interactive Stories Platform",
           description:

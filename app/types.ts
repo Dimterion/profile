@@ -17,6 +17,7 @@ export type Project = {
   id: string;
   slug: string;
   buttonLabel: string;
+  featured?: boolean;
   label: string;
   title: string;
   description: string;
@@ -45,4 +46,9 @@ export type PaginationProps = {
   totalPages: number;
   currentPage: number;
   onPageChange: (page: number) => void;
+};
+
+export type FeaturedProjectsProps = {
+  projects: Project[];
+  count: number;
 };
