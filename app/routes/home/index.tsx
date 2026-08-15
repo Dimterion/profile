@@ -2,6 +2,7 @@ import type { Route } from "./+types/index";
 import Hero from "~/components/hero/Hero";
 import FeaturedProjects from "~/components/featuredProjects/FeaturedProjects";
 import { siteText } from "~/data/content";
+import AboutPreview from "~/components/aboutPreview/AboutPreview";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -23,6 +24,7 @@ export default function HomePage({ loaderData }: Route.ComponentProps) {
     <>
       <Hero />
       <FeaturedProjects projects={projects} count={2} />
+      <AboutPreview />
     </>
   );
 }
