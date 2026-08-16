@@ -1,8 +1,32 @@
-export default function ContactPage() {
+import { Form } from "react-router";
+import type { Route } from "./+types";
+
+export async function action({ request }: Route.ActionArgs) {
+  const formData = await request.formData();
+  const name = formData.get("name");
+  const email = formData.get("email");
+  const subject = formData.get("subject");
+  const message = formData.get("message");
+  const data = {
+    name,
+    email,
+    subject,
+    message,
+  };
+
+  return { message: "Form submitted", data };
+}
+
+export default function ContactPage({ actionData }: Route.ComponentProps) {
   return (
     <section className="mx-auto mt-12 max-w-3xl bg-gray-200 px-6 py-8">
       <h2 className="mb-8 text-center text-3xl font-bold">Contact</h2>
-      <form className="space-y-6">
+      {actionData?.message ? (
+        <p className="mb-6 border bg-gray-200 text-center shadow-md p-4">
+          {actionData.message}
+        </p>
+      ) : null}
+      <Form method="post" className="space-y-6">
         <div>
           <label htmlFor="name" className="block text-sm font-medium">
             Name
@@ -49,7 +73,7 @@ export default function ContactPage() {
         <button className="w-full cursor-pointer bg-gray-400 py-2 hover:bg-gray-500">
           Send message
         </button>
-      </form>
+      </Form>
     </section>
   );
 }
