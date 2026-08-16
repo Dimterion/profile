@@ -1,9 +1,4 @@
 import DiamondImg from "~/components/diamondImg/DiamondImg";
-import profileImg from "../../assets/images/profile_img.png";
-
-const diamondClip = {
-  clipPath: "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)",
-};
 
 export default function AboutPage() {
   return (

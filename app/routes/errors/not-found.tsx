@@ -1,8 +1,16 @@
 import { data, Link, useNavigate } from "react-router";
 import { ArrowLeftIcon } from "~/components/icons";
+import type { Route } from "../contact/+types";
 
 export function loader() {
   return data(null, { status: 404 });
+}
+
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "Dimterion | 404" },
+    { name: "description", content: "Dimterion's profile" },
+  ];
 }
 
 export default function NotFoundPage() {
