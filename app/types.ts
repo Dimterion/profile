@@ -52,3 +52,31 @@ export type FeaturedProjectsProps = {
   projects: Project[];
   count: number;
 };
+
+export type PostsMetaLink = {
+  label: string;
+  href: string;
+};
+
+export type PostsMetaImage = {
+  link: string;
+  description: string;
+};
+
+export type PostsMeta = {
+  id: string;
+  slug: string;
+  featured: boolean;
+  label: string;
+  title: string;
+  description: string;
+  date: string;
+  stack: string[];
+  links: PostsMetaLink[];
+  image: PostsMetaImage;
+};
+
+export type PostsByLanguage = {
+  en: PostsMeta[];
+  fr: PostsMeta[];
+};

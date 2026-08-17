@@ -1,3 +1,5 @@
+import type { PostsByLanguage } from "~/types";
+
 export const postsMeta = {
   en: [
     {
@@ -7,7 +9,7 @@ export const postsMeta = {
       label: "Post 01 Label",
       title: "Post 01 Title",
       description: "Post 01 description.",
-      date: "01-01-26",
+      date: "2026-01-01",
       stack: ["stackItem01", "stackItem02", "stackItem03"],
       links: [
         {
@@ -31,7 +33,7 @@ export const postsMeta = {
       label: "Post 02 Label",
       title: "Post 02 Title",
       description: "Post 02 description.",
-      date: "01-02-26",
+      date: "2026-02-01",
       stack: ["stackItem01", "stackItem02", "stackItem03"],
       links: [
         {
@@ -50,4 +52,4 @@ export const postsMeta = {
     },
   ],
   fr: [],
-};
+} satisfies PostsByLanguage;
