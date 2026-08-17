@@ -1,5 +1,6 @@
 import type { Route } from "./+types";
 import { postsMeta } from "~/data/blog/posts-meta";
+import PostCard from "~/components/postCard/PostCard";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -19,7 +20,13 @@ export async function loader({}: Route.LoaderArgs) {
 
 export default function BlogPage({ loaderData }: Route.ComponentProps) {
   const { posts } = loaderData;
-  console.log(posts);
 
-  return <>Blog page</>;
+  return (
+    <section className="mx-auto mt-10 max-w-3xl bg-gray-200 p-6">
+      <h2 className="mb-8 text-3xl font-bold">Blog</h2>
+      {posts.map((post) => (
+        <PostCard key={post.id} post={post} />
+      ))}
+    </section>
+  );
 }
