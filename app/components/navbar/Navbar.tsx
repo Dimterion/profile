@@ -19,8 +19,8 @@ const navItems = [
     end: true,
   },
   {
-    to: "/posts",
-    label: "Posts",
+    to: "/blog",
+    label: "Blog",
     icon: <ScrollIcon />,
     position: "right" as const,
   },
