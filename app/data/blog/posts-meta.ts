@@ -4,7 +4,7 @@ export const postsMeta = {
   en: [
     {
       id: "post-01",
-      slug: "post-01-slug",
+      slug: "post-01",
       featured: true,
       label: "Post 01 Label",
       title: "Post 01 Title",
@@ -28,7 +28,7 @@ export const postsMeta = {
     },
     {
       id: "post-02",
-      slug: "post-02-slug",
+      slug: "post-02",
       featured: true,
       label: "Post 02 Label",
       title: "Post 02 Title",
