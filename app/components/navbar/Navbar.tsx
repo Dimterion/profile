@@ -23,6 +23,7 @@ const navItems = [
     label: "Blog",
     icon: <ScrollIcon />,
     position: "right" as const,
+    end: true,
   },
   {
     to: "/about",
