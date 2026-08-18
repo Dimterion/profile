@@ -80,3 +80,10 @@ export type PostsByLanguage = {
   en: PostsMeta[];
   fr: PostsMeta[];
 };
+
+export type BlogDetailsPageProps = {
+  loaderData: {
+    post: PostsMeta;
+    content: string;
+  };
+};
