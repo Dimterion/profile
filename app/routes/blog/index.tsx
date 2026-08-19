@@ -13,8 +13,13 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export async function loader({}: Route.LoaderArgs) {
+  const sortedPosts = [...postsMeta.en].sort(
+    (a, b) =>
+      new Date(b.date).getTime() - new Date(a.date).getTime(),
+  );
+
   return {
-    posts: postsMeta.en,
+    posts: sortedPosts,
   };
 }
 
