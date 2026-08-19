@@ -68,7 +68,9 @@ export default function BlogDetailsPage({ loaderData }: BlogDetailsPageProps) {
         </time>
       </header>
 
-      <ReactMarkdown>{content}</ReactMarkdown>
+      <div className="prose mb-12 max-w-none">
+        <ReactMarkdown>{content}</ReactMarkdown>
+      </div>
     </article>
   );
 }
