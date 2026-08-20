@@ -3,6 +3,7 @@ import { postsMeta } from "~/data/blog/posts-meta";
 import PostCard from "~/components/postCard/PostCard";
 import { useState } from "react";
 import Pagination from "~/components/pagination/Pagination";
+import PostFilter from "~/components/postFilter/PostFilter";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -25,22 +26,43 @@ export async function loader({}: Route.LoaderArgs) {
 }
 
 export default function BlogPage({ loaderData }: Route.ComponentProps) {
+  const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 10;
 
   const { posts } = loaderData;
 
-  const totalPages = Math.ceil(posts.length / postsPerPage);
+  const filteredPosts = posts.filter((post) => {
+    const query = searchQuery.toLowerCase();
+
+    return (
+      post.title.toLowerCase().includes(query) ||
+      post.description.toLocaleLowerCase().includes(query)
+    );
+  });
+
+  const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
   const indexOfLast = currentPage * postsPerPage;
   const indexOfFirst = indexOfLast - postsPerPage;
-  const currentPosts = posts.slice(indexOfFirst, indexOfLast);
+  const currentPosts = filteredPosts.slice(indexOfFirst, indexOfLast);
 
   return (
     <section className="mx-auto mt-10 max-w-3xl bg-gray-200 p-6">
       <h2 className="mb-8 text-3xl font-bold">Blog</h2>
-      {currentPosts.map((post) => (
-        <PostCard key={post.id} post={post} />
-      ))}
+      <PostFilter
+        searchQuery={searchQuery}
+        onSearchChange={(query) => {
+          setSearchQuery(query);
+          setCurrentPage(1);
+        }}
+      />
+      <div className="space-y-8">
+        {currentPosts.length === 0 ? (
+          <p className="text-center">No posts found.</p>
+        ) : (
+          currentPosts.map((post) => <PostCard key={post.id} post={post} />)
+        )}
+      </div>
 
       {totalPages > 1 && (
         <Pagination

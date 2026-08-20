@@ -87,3 +87,8 @@ export type BlogDetailsPageProps = {
     content: string;
   };
 };
+
+export type PostFilterProps = {
+  searchQuery: string;
+  onSearchChange: (value: string) => void;
+};
