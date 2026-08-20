@@ -23,7 +23,7 @@ export function sortPostsLatestFirst(posts: PostsMeta[]) {
 export async function loader({}: Route.LoaderArgs) {
   return {
     projects: siteText.en.projects.items,
-    posts: sortPostsLatestFirst(postsMeta.en).slice(0, 2),
+    posts: sortPostsLatestFirst(postsMeta.en),
   };
 }
 
@@ -34,7 +34,7 @@ export default function HomePage({ loaderData }: Route.ComponentProps) {
     <>
       <Hero />
       <FeaturedProjects projects={projects} count={2} />
-      <LatestPosts posts={posts} />
+      <LatestPosts posts={posts} limit={3} />
       <AboutPreview />
     </>
   );
