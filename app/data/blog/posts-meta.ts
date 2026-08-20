@@ -50,6 +50,54 @@ export const postsMeta = {
         description: "Image description",
       },
     },
+    {
+      id: "post-03",
+      slug: "post-03",
+      featured: true,
+      label: "Post 03 Label",
+      title: "Post 03 Title",
+      description: "Post 03 description.",
+      date: "2026-03-28",
+      stack: ["stackItem01", "stackItem02", "stackItem03"],
+      links: [
+        {
+          label: "Link 01",
+          href: "https://example.com/",
+        },
+        {
+          label: "Link 02",
+          href: "https://example.com/",
+        },
+      ],
+      image: {
+        link: "imageLink",
+        description: "Image description",
+      },
+    },
+    {
+      id: "post-04",
+      slug: "post-04",
+      featured: true,
+      label: "Post 04 Label",
+      title: "Post 04 Title",
+      description: "Post 04 description.",
+      date: "2026-04-28",
+      stack: ["stackItem01", "stackItem02", "stackItem03"],
+      links: [
+        {
+          label: "Link 01",
+          href: "https://example.com/",
+        },
+        {
+          label: "Link 02",
+          href: "https://example.com/",
+        },
+      ],
+      image: {
+        link: "imageLink",
+        description: "Image description",
+      },
+    },
   ],
   fr: [],
 } satisfies PostsByLanguage;
