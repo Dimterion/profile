@@ -1,4 +1,4 @@
-import Navbar from "../navbar/Navbar";
+import Navbar from "../Navbar/Navbar";
 import SocialLinks from "../SocialLinks/SocialLinks";
 
 export default function Footer() {
