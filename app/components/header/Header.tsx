@@ -1,12 +1,7 @@
 import type { HeaderProps } from "~/types";
-import profileImg from "../../assets/images/profile_img.png";
 import DiamondNavLink from "../diamondNavLink/DiamondNavLink";
 import { HouseIcon } from "~/components/icons";
 import DiamondImg from "../diamondImg/DiamondImg";
-
-const diamondClip = {
-  clipPath: "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)",
-};
 
 export default function Header({ showPortrait = false }: HeaderProps) {
   return (
