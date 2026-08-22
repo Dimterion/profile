@@ -9,7 +9,7 @@ const diamondClip = {
 
 export default function Header({ showPortrait = false }: HeaderProps) {
   return (
-    <header className="fixed inset-x-0 top-0 z-50 flex items-center gap-1 p-1">
+    <header className="fixed inset-x-0 top-0 z-50 flex items-center justify-between gap-1 p-1 sm:justify-start">
       {showPortrait && (
         <div className="relative h-20 w-20 shrink-0" aria-label="Profile image">
           <div className="absolute inset-0 bg-current" style={diamondClip} />

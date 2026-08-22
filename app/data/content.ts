@@ -45,6 +45,7 @@ export const siteText = {
           id: "project-02",
           slug: "dimterion-com",
           buttonLabel: "2",
+          featured: true,
           label: "Personal Site",
           title: "dimterion.com",
           description:
@@ -69,6 +70,7 @@ export const siteText = {
           id: "project-03",
           slug: "dimterions-stories",
           buttonLabel: "3",
+          featured: true,
           label: "Storytelling",
           title: "Dimterion's Stories",
           description: "A website hosting a collection of personal stories.",

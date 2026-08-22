@@ -10,7 +10,7 @@ export default function FeaturedProjects({
     .slice(0, count);
 
   return (
-    <div className="grid gap-6 sm:grid-cols-2">
+    <div className="grid max-w-100 gap-6 lg:max-w-full lg:grid-cols-2">
       {featured.map((project) => (
         <ProjectCard key={project.id} project={project} />
       ))}
