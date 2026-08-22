@@ -9,9 +9,12 @@ const diamondClip = {
 
 export default function Header({ showPortrait = false }: HeaderProps) {
   return (
-    <header className="fixed inset-x-0 top-0 z-50 flex items-center justify-between gap-1 p-1 sm:justify-start">
+    <header className="fixed inset-x-0 top-0 z-50 flex items-center justify-between gap-1 p-1 md:justify-start">
       {showPortrait && (
-        <div className="relative h-20 w-20 shrink-0" aria-label="Profile image">
+        <div
+          className="relative h-10 w-10 shrink-0 md:h-20 md:w-20"
+          aria-label="Profile image"
+        >
           <div className="absolute inset-0 bg-current" style={diamondClip} />
 
           <div
@@ -29,10 +32,10 @@ export default function Header({ showPortrait = false }: HeaderProps) {
 
       <NavLink
         to="/"
-        className={`inline-flex h-7 w-7 rotate-45 items-center justify-center border ${!showPortrait && "m-1"}`}
+        className={`inline-flex h-5 w-5 rotate-45 items-center justify-center border md:h-7 md:w-7 ${!showPortrait && "m-1"}`}
       >
         <span className="inline-flex -rotate-45">
-          <HouseIcon />
+          <HouseIcon className="mb-0.5 h-4 w-4" />
         </span>
       </NavLink>
     </header>
