@@ -35,7 +35,7 @@ export default function Header({ showPortrait = false }: HeaderProps) {
         className={`inline-flex h-5 w-5 rotate-45 items-center justify-center border md:h-7 md:w-7 ${!showPortrait && "m-1"}`}
       >
         <span className="inline-flex -rotate-45">
-          <HouseIcon className="mb-0.5 h-4 w-4" />
+          <HouseIcon className="mb-0.5 h-4 w-4 md:mb-0 md:h-5 md:w-5" />
         </span>
       </NavLink>
     </header>
