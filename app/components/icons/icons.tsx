@@ -1,6 +1,10 @@
 import type { IconProps } from "~/types";
 
-export function HouseIcon({ className = "h-5 w-5" }: { className?: string }) {
+export function HouseIcon({
+  className = "h-4 w-4 md:h-5 md:w-5",
+}: {
+  className?: string;
+}) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -19,7 +23,7 @@ export function HouseIcon({ className = "h-5 w-5" }: { className?: string }) {
   );
 }
 
-export function HammerIcon({ className = "h-5 w-5" }: IconProps) {
+export function HammerIcon({ className = "h-4 w-4 md:h-5 md:w-5" }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -39,7 +43,7 @@ export function HammerIcon({ className = "h-5 w-5" }: IconProps) {
   );
 }
 
-export function ScrollIcon({ className = "h-5 w-5" }: IconProps) {
+export function ScrollIcon({ className = "h-4 w-4 md:h-5 md:w-5" }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -60,7 +64,9 @@ export function ScrollIcon({ className = "h-5 w-5" }: IconProps) {
   );
 }
 
-export function PortraitFrameIcon({ className = "h-5 w-5" }: IconProps) {
+export function PortraitFrameIcon({
+  className = "h-4 w-4 md:h-5 md:w-5",
+}: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +86,9 @@ export function PortraitFrameIcon({ className = "h-5 w-5" }: IconProps) {
   );
 }
 
-export function FeatherIcon({ className = "h-5 w-5" }: IconProps) {
+export function FeatherIcon({
+  className = "h-4 w-4 md:h-5 md:w-5",
+}: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +108,7 @@ export function FeatherIcon({ className = "h-5 w-5" }: IconProps) {
   );
 }
 
-export function MenuIcon({ className = "h-5 w-5" }: IconProps) {
+export function MenuIcon({ className = "h-4 w-4 md:h-5 md:w-5" }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -120,7 +128,7 @@ export function MenuIcon({ className = "h-5 w-5" }: IconProps) {
   );
 }
 
-export function CloseIcon({ className = "h-5 w-5" }: IconProps) {
+export function CloseIcon({ className = "h-4 w-4 md:h-5 md:w-5" }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -139,7 +147,9 @@ export function CloseIcon({ className = "h-5 w-5" }: IconProps) {
   );
 }
 
-export function ArrowLeftIcon({ className = "h-5 w-5" }: IconProps) {
+export function ArrowLeftIcon({
+  className = "h-4 w-4 md:h-5 md:w-5",
+}: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -158,7 +168,7 @@ export function ArrowLeftIcon({ className = "h-5 w-5" }: IconProps) {
   );
 }
 
-export function GithubIcon({ className = "h-4 w-4" }: IconProps) {
+export function GithubIcon({ className = "h-4 w-4 md:h-5 md:w-5" }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -177,7 +187,9 @@ export function GithubIcon({ className = "h-4 w-4" }: IconProps) {
   );
 }
 
-export function LinkedinIcon({ className = "h-4 w-4" }: IconProps) {
+export function LinkedinIcon({
+  className = "h-4 w-4 md:h-5 md:w-5",
+}: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -197,7 +209,9 @@ export function LinkedinIcon({ className = "h-4 w-4" }: IconProps) {
   );
 }
 
-export function InstagramIcon({ className = "h-4 w-4" }: IconProps) {
+export function InstagramIcon({
+  className = "h-4 w-4 md:h-5 md:w-5",
+}: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -217,7 +231,7 @@ export function InstagramIcon({ className = "h-4 w-4" }: IconProps) {
   );
 }
 
-export function MailIcon({ className = "h-4 w-4" }: IconProps) {
+export function MailIcon({ className = "h-4 w-4 md:h-5 md:w-5" }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
