@@ -1,5 +1,5 @@
 import type { HeaderProps } from "~/types";
-import DiamondNavLink from "../diamondNavLink/DiamondNavLink";
+import DiamondNavLink from "../DiamondNavLink/DiamondNavLink";
 import { HouseIcon } from "~/components/icons";
 import DiamondImg from "../diamondImg/DiamondImg";
 
