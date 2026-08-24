@@ -29,7 +29,7 @@ export default function LatestPosts({ posts, limit = 3 }: LatestPostsProps) {
 
             <p className="text-sm">{post.description}</p>
 
-            <time dateTime={post.date} className="text-sm text-gray-600">
+            <time dateTime={post.date} className="text-grey text-sm">
               {dateFormatter.format(new Date(post.date))}
             </time>
           </Link>
