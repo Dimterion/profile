@@ -44,7 +44,7 @@ export default function SocialLinks() {
                     rel: "noopener noreferrer",
                   }
                 : {})}
-              className="inline-flex h-5 w-5 rotate-45 items-center justify-center border transition-transform hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 md:h-7 md:w-7"
+              className="bg-blue inline-flex h-5 w-5 rotate-45 items-center justify-center border transition-transform hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 md:h-7 md:w-7"
             >
               <span className="-rotate-45">{link.icon}</span>
             </a>

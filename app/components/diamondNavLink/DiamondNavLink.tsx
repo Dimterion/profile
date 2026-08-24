@@ -23,7 +23,7 @@ export default function DiamondNavLink({
       className={({ isActive }) =>
         [
           "inline-flex h-5 w-5 rotate-45 items-center justify-center",
-          "md:h-10 md:w-10",
+          "bg-blue md:h-10 md:w-10",
           position ? "md:absolute" : "",
           position ? positionClasses[position] : "",
           isActive ? "border-gold text-gold border-2" : "border",

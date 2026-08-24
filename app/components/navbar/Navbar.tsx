@@ -77,7 +77,7 @@ export default function Navbar() {
           aria-expanded={menuOpen}
           aria-controls="mobile-navigation"
           onClick={() => setMenuOpen((previous) => !previous)}
-          className="inline-flex h-5 w-5 shrink-0 rotate-45 items-center justify-center border md:h-7 md:w-7"
+          className="bg-blue inline-flex h-5 w-5 shrink-0 rotate-45 items-center justify-center border md:h-7 md:w-7"
         >
           <span className="-rotate-45">
             {menuOpen ? (
