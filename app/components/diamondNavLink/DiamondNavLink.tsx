@@ -26,7 +26,7 @@ export default function DiamondNavLink({
           "md:h-10 md:w-10",
           position ? "md:absolute" : "",
           position ? positionClasses[position] : "",
-          isActive ? "border-2" : "border",
+          isActive ? "border-gold text-gold border-2" : "border",
         ]
           .filter(Boolean)
           .join(" ")
