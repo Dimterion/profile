@@ -1,5 +1,5 @@
 import type { SiteLayoutProps } from "~/types";
-import Header from "../../components/Header/Header-TI";
+import Header from "../../components/Header/Header";
 import Footer from "~/components/Footer/Footer";
 
 export default function SiteLayout({

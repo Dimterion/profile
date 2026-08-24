@@ -7,7 +7,7 @@ const diamondClip = {
 export default function DiamondImg() {
   return (
     <div
-      className="relative h-20 w-20 shrink-0 md:h-30 md:w-30"
+      className="relative h-8 w-8 shrink-0 md:h-20 md:w-20"
       aria-label="Profile image"
     >
       <div className="absolute inset-0 bg-current" style={diamondClip} />
