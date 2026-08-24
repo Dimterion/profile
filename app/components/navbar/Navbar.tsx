@@ -52,7 +52,7 @@ export default function Navbar() {
       {/* Desktop navigation */}
       <nav
         aria-label="Primary navigation"
-        className="relative m-3 hidden h-18 w-18 md:m-4 md:flex md:h-25 md:w-25"
+        className="relative m-3 hidden h-18 w-18 md:flex md:h-25 md:w-25"
       >
         {navItems.map((item) => (
           <DiamondNavLink
@@ -79,7 +79,7 @@ export default function Navbar() {
           onClick={() => setMenuOpen((previous) => !previous)}
           className="bg-blue inline-flex h-5 w-5 shrink-0 rotate-45 items-center justify-center border md:h-7 md:w-7"
         >
-          <span className="-rotate-45">
+          <span className="-rotate-45 cursor-pointer">
             {menuOpen ? (
               <CloseIcon className="h-4 w-4" />
             ) : (
