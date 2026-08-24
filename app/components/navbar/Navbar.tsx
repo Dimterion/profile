@@ -68,7 +68,7 @@ export default function Navbar() {
       </nav>
 
       {/* Mobile navigation */}
-      <div className="m-3 inline-flex flex-col-reverse items-center gap-4 self-start md:hidden">
+      <div className="mb-2 ml-2 inline-flex flex-col-reverse items-center gap-2.5 md:hidden">
         <button
           type="button"
           aria-label={
@@ -77,7 +77,7 @@ export default function Navbar() {
           aria-expanded={menuOpen}
           aria-controls="mobile-navigation"
           onClick={() => setMenuOpen((previous) => !previous)}
-          className="inline-flex h-7 w-7 shrink-0 rotate-45 items-center justify-center border"
+          className="inline-flex h-5 w-5 shrink-0 rotate-45 items-center justify-center border md:h-7 md:w-7"
         >
           <span className="-rotate-45">
             {menuOpen ? (
@@ -92,7 +92,7 @@ export default function Navbar() {
           <nav
             id="mobile-navigation"
             aria-label="Mobile navigation"
-            className="flex flex-col items-center gap-4"
+            className="flex flex-col items-center gap-2.5"
           >
             {navItems.map((item) => (
               <DiamondNavLink
