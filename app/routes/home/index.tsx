@@ -2,7 +2,7 @@ import type { Route } from "./+types/index";
 import Hero from "~/components/Hero/Hero";
 import FeaturedProjects from "~/components/FeaturedProjects/FeaturedProjects";
 import { siteText } from "~/data/content";
-import AboutPreview from "~/components/aboutPreview/AboutPreview";
+import AboutPreview from "~/components/AboutPreview/AboutPreview";
 import type { PostsMeta } from "~/types";
 import { postsMeta } from "~/data/blog/posts-meta";
 import LatestPosts from "~/components/LatestPosts/LatestPosts";
