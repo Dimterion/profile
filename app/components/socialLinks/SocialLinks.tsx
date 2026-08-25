@@ -31,8 +31,8 @@ const socialLinks = [
 
 export default function SocialLinks() {
   return (
-    <section aria-label="Social links" className="relative">
-      <ul className="absolute right-0 bottom-0 mr-2 mb-1 flex flex-col gap-1 md:relative md:mb-2 md:gap-2.5">
+    <section aria-label="Social links" className="mr-2 mb-1 fixed right-0 bottom-0 z-50">
+      <ul className="flex flex-col gap-1 md:gap-2.5">
         {socialLinks.map((link) => (
           <li key={link.label}>
             <a

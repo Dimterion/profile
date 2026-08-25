@@ -48,7 +48,7 @@ export default function Navbar() {
   }, [location.pathname]);
 
   return (
-    <>
+    <div className="fixed bottom-0 left-0 z-50">
       {/* Desktop navigation */}
       <nav
         aria-label="Primary navigation"
@@ -107,6 +107,6 @@ export default function Navbar() {
           </nav>
         )}
       </div>
-    </>
+    </div>
   );
 }
