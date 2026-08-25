@@ -1,6 +1,6 @@
 import type { Route } from "./+types/index";
-import Hero from "~/components/hero/Hero";
-import FeaturedProjects from "~/components/featuredProjects/FeaturedProjects";
+import Hero from "~/components/Hero/Hero";
+import FeaturedProjects from "~/components/FeaturedProjects/FeaturedProjects";
 import { siteText } from "~/data/content";
 import AboutPreview from "~/components/aboutPreview/AboutPreview";
 import type { PostsMeta } from "~/types";

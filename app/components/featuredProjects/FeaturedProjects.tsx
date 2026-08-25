@@ -10,10 +10,13 @@ export default function FeaturedProjects({
     .slice(0, count);
 
   return (
-    <div className="grid max-w-96 gap-6 lg:max-w-180 lg:grid-cols-2 xl:max-w-full">
-      {featured.map((project) => (
-        <ProjectCard key={project.id} project={project} />
-      ))}
-    </div>
+    <section className="bg-blue max-w-96 border p-4 lg:max-w-180 xl:max-w-full">
+      <h2 className="mb-4 text-center text-lg font-bold md:text-xl">Work</h2>
+      <div className="grid gap-4 lg:grid-cols-2">
+        {featured.map((project) => (
+          <ProjectCard key={project.id} project={project} />
+        ))}
+      </div>
+    </section>
   );
 }
