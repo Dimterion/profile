@@ -5,7 +5,7 @@ import { siteText } from "~/data/content";
 import AboutPreview from "~/components/aboutPreview/AboutPreview";
 import type { PostsMeta } from "~/types";
 import { postsMeta } from "~/data/blog/posts-meta";
-import LatestPosts from "~/components/latestPosts/LatestPosts";
+import LatestPosts from "~/components/LatestPosts/LatestPosts";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -34,7 +34,7 @@ export default function HomePage({ loaderData }: Route.ComponentProps) {
     <>
       <Hero />
       <FeaturedProjects projects={projects} count={2} />
-      <LatestPosts posts={posts} limit={3} />
+      <LatestPosts posts={posts} limit={4} />
       <AboutPreview />
     </>
   );

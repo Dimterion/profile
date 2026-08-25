@@ -8,7 +8,9 @@ export default function ProjectCard({ project }: { project: Project }) {
       to={`/projects/${project.slug}`}
       className="project-card-enter bg-dark-blue flex transform flex-col border transition duration-100 hover:scale-[1.01]"
     >
-      <h3 className="p-2 text-center font-semibold">{project.title}</h3>
+      <h3 className="p-2 text-center font-semibold md:text-lg">
+        {project.title}
+      </h3>
       <img
         src={project.image.link}
         alt={project.image.description}

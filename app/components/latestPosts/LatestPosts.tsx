@@ -1,11 +1,7 @@
 import { Link } from "react-router";
 import type { LatestPostsProps } from "~/types";
-
-const dateFormatter = new Intl.DateTimeFormat("en-GB", {
-  day: "numeric",
-  month: "long",
-  year: "numeric",
-});
+import { ArrowRightIcon } from "../icons";
+import { dateFormatter } from "~/utils";
 
 export default function LatestPosts({ posts, limit = 3 }: LatestPostsProps) {
   const sorted = [...posts].sort(
@@ -15,23 +11,28 @@ export default function LatestPosts({ posts, limit = 3 }: LatestPostsProps) {
   const latest = sorted.slice(0, limit);
 
   return (
-    <section className="mx-auto max-w-6xl px-6 py-12">
-      <h2 className="mb-6 text-2xl font-bold">Latest Posts</h2>
+    <section className="bg-blue mx-auto mt-4 w-full max-w-96 border p-2 md:p-4 lg:max-w-180 xl:max-w-full">
+      <h2 className="mb-4 text-center text-lg font-bold md:text-xl">
+        Latest Posts
+      </h2>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {latest.map((post) => (
           <Link
             to={`/blog/${post.slug}`}
             key={post.id}
-            className="block border p-4 transition hover:shadow-md"
+            className="bg-dark-blue block border p-4 transition hover:shadow-md"
           >
-            <h3 className="mb-1 text-lg font-semibold">{post.title}</h3>
+            <h3 className="mb-1 font-semibold md:text-lg">{post.title}</h3>
 
             <p className="text-sm">{post.description}</p>
 
-            <time dateTime={post.date} className="text-grey text-sm">
-              {dateFormatter.format(new Date(post.date))}
-            </time>
+            <div className="flex items-center justify-between">
+              <time dateTime={post.date} className="text-grey text-sm">
+                {dateFormatter.format(new Date(post.date))}
+              </time>
+              <ArrowRightIcon className="h-4 w-4" />
+            </div>
           </Link>
         ))}
       </div>
