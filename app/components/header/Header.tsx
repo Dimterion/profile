@@ -1,12 +1,17 @@
 import { NavLink } from "react-router";
 import { HouseIcon } from "../icons";
 import type { HeaderProps } from "~/types";
-import DiamondImg from "../diamondImg/DiamondImg";
+import DiamondImg from "../DiamondImg/DiamondImg";
+import profileImg from "../../assets/images/profile_img.png";
 
 export default function Header({ showPortrait = false }: HeaderProps) {
   return (
     <header className="fixed inset-x-0 top-0 z-50 mx-auto flex w-full max-w-[2560px] flex-col gap-1 p-1 md:flex-row md:items-center md:justify-start">
-      {showPortrait ? <DiamondImg /> : <div aria-hidden="true" />}
+      {showPortrait ? (
+        <DiamondImg link={profileImg} alt="Dmitrii's profile picture." />
+      ) : (
+        <div aria-hidden="true" />
+      )}
 
       <NavLink
         to="/"

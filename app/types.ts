@@ -97,3 +97,9 @@ export type LatestPostsProps = {
   posts: PostsMeta[];
   limit?: number;
 };
+
+export type DiamondImgProps = {
+  link: string;
+  alt: string;
+  style?: string;
+}

@@ -1,10 +1,15 @@
-import DiamondImg from "~/components/diamondImg/DiamondImg";
+import DiamondImg from "~/components/DiamondImg/DiamondImg";
+import profileImg from "../../assets/images/profile_img.png";
 
 export default function AboutPage() {
   return (
     <section className="mx-auto max-w-5xl bg-gray-300 px-6 py-16">
       <div className="mb-12 flex flex-col items-center gap-10 md:flex-row md:items-start">
-        <DiamondImg />
+        <DiamondImg
+          link={profileImg}
+          alt="Dmitrii's profile picture."
+          style="h-20 w-20"
+        />
         <div>
           <h1 className="mb-2 text-3xl font-bold">Profile</h1>
           <p className="text-lg">Profile information.</p>

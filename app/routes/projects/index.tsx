@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { Route } from "./+types/index";
 import { siteText } from "../../data/content";
-import ProjectCard from "~/components/projectCard/ProjectCard";
+import ProjectCard from "~/components/ProjectCard/ProjectCard";
 import Pagination from "~/components/pagination/Pagination";
 
 export function meta({}: Route.MetaArgs) {
