@@ -47,8 +47,9 @@ export default function BlogPage({ loaderData }: Route.ComponentProps) {
   const currentPosts = filteredPosts.slice(indexOfFirst, indexOfLast);
 
   return (
-    <section className="mx-auto mt-10 max-w-3xl bg-gray-200 p-6">
-      <h2 className="mb-8 text-3xl font-bold">Blog</h2>
+    <>
+      <h2 className="font-bold">Blog</h2>
+
       <PostFilter
         searchQuery={searchQuery}
         onSearchChange={(query) => {
@@ -56,7 +57,7 @@ export default function BlogPage({ loaderData }: Route.ComponentProps) {
           setCurrentPage(1);
         }}
       />
-      <div className="space-y-8">
+      <div className="bg-blue w-full max-w-96 space-y-4 border p-2 md:max-w-lg md:p-4 lg:max-w-2xl xl:max-w-full">
         {currentPosts.length === 0 ? (
           <p className="text-center">No posts found.</p>
         ) : (
@@ -71,6 +72,6 @@ export default function BlogPage({ loaderData }: Route.ComponentProps) {
           onPageChange={(page) => setCurrentPage(page)}
         />
       )}
-    </section>
+    </>
   );
 }

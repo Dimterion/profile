@@ -54,13 +54,13 @@ export default function BlogDetailsPage({ loaderData }: BlogDetailsPageProps) {
   }).format(new Date(post.date));
 
   return (
-    <article className="prose mx-auto mt-10 max-w-3xl">
+    <article className="prose mx-auto w-full max-w-96 p-2 text-white md:max-w-lg md:p-4 lg:max-w-2xl xl:max-w-full">
       <Link to="/blog" className="not-prose underline">
         Back to blog
       </Link>
 
       <header className="not-prose mb-8">
-        <p className="text-sm text-gray-600">{post.label}</p>
+        <p className="text-sm">{post.label}</p>
         <h1 className="text-4xl font-bold">{post.title}</h1>
         <p>{post.description}</p>
         <time dateTime={post.date} className="mb-2 block text-sm">
