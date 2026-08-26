@@ -46,7 +46,7 @@ export default function ProjectsPage({ loaderData }: Route.ComponentProps) {
   return (
     <>
       <h2 className="font-bold">Projects</h2>
-      <div className="my-4 flex flex-wrap gap-2">
+      <div className="bg-blue flex w-full max-w-96 flex-wrap justify-center gap-2 border p-2 md:max-w-lg md:p-4 lg:max-w-2xl xl:max-w-full">
         {categories.map((category) => (
           <button
             key={category}
@@ -54,7 +54,7 @@ export default function ProjectsPage({ loaderData }: Route.ComponentProps) {
               setSelectedCategory(category);
               setCurrentPage(1);
             }}
-            className={`cursor-pointer px-3 py-1 text-sm text-white ${selectedCategory === category ? "bg-gray-600" : "bg-gray-400"}`}
+            className={`cursor-pointer px-3 py-1 text-sm text-white ${selectedCategory === category ? "bg-dark-blue" : "bg-grey"}`}
           >
             {category}
           </button>
@@ -62,7 +62,7 @@ export default function ProjectsPage({ loaderData }: Route.ComponentProps) {
       </div>
       <section
         key={`${selectedCategory}-${currentPage}`}
-        className="projects-grid-enter my-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+        className="projects-grid-enter bg-blue grid w-full max-w-96 gap-6 border p-2 md:max-w-lg md:p-4 lg:max-w-2xl lg:grid-cols-2 xl:max-w-full xl:grid-cols-3"
       >
         {currentProjects.map((project) => (
           <ProjectCard key={project.id} project={project} />
