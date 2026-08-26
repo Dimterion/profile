@@ -3,7 +3,7 @@ import profileImg from "../../assets/images/profile_img.png";
 
 export default function AboutPage() {
   return (
-    <section className="mx-auto max-w-5xl bg-gray-300 px-6 py-16">
+    <section className="bg-blue w-full max-w-96 border p-2 md:max-w-lg md:p-4 lg:max-w-2xl xl:max-w-full">
       <div className="mb-12 flex flex-col items-center gap-10 md:flex-row md:items-start">
         <DiamondImg
           link={profileImg}

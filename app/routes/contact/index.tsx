@@ -37,7 +37,7 @@ export default function ContactPage({ actionData }: Route.ComponentProps) {
   const errors = actionData?.errors || {};
 
   return (
-    <section className="mx-auto mt-12 max-w-3xl bg-gray-200 px-6 py-8">
+    <section className="bg-blue w-full max-w-96 border p-2 md:max-w-lg md:p-4 lg:max-w-2xl xl:max-w-full">
       <h2 className="mb-8 text-center text-3xl font-bold">Contact</h2>
       {actionData?.message ? (
         <p className="mb-6 border bg-green-400 p-4 text-center shadow-md">
@@ -100,7 +100,7 @@ export default function ContactPage({ actionData }: Route.ComponentProps) {
             <p className="mt-1 text-sm text-red-400">{errors.message}</p>
           )}
         </div>
-        <button className="w-full cursor-pointer bg-gray-400 py-2 hover:bg-gray-500">
+        <button className="bg-grey w-full cursor-pointer py-2 hover:bg-gray-500">
           Send message
         </button>
       </Form>
