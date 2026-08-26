@@ -92,7 +92,7 @@ export default function Navbar() {
           <nav
             id="mobile-navigation"
             aria-label="Mobile navigation"
-            className="flex flex-col items-center gap-2.5"
+            className="flex flex-col items-center gap-2"
           >
             {navItems.map((item) => (
               <DiamondNavLink

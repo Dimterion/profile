@@ -2,7 +2,7 @@ import { Link } from "react-router";
 
 export default function AboutPreview() {
   return (
-    <section className="bg-blue mx-auto mt-4 w-full max-w-96 border p-2 md:p-4 lg:max-w-180 xl:max-w-full">
+    <section className="bg-blue w-full max-w-96 border p-2 md:max-w-lg md:p-4 lg:max-w-2xl xl:max-w-full">
       <div>
         <h2 className="mb-4 text-center text-lg font-bold md:text-xl">
           Profile

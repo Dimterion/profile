@@ -10,7 +10,7 @@ export default function FeaturedProjects({
     .slice(0, count);
 
   return (
-    <section className="bg-blue max-w-96 border p-2 md:p-4 lg:max-w-180 xl:max-w-full">
+    <section className="bg-blue w-full max-w-96 border p-2 md:max-w-lg md:p-4 lg:max-w-2xl xl:max-w-full">
       <h2 className="mb-4 text-center text-lg font-bold md:text-xl">Work</h2>
       <div className="grid gap-2 md:mx-2 md:mb-2 md:gap-6 lg:grid-cols-2">
         {featured.map((project) => (

@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="bg-blue my-4 flex max-w-96 flex-col items-center border p-4 text-center lg:max-w-180 xl:max-w-full">
+    <section className="bg-blue w-full max-w-96 border p-2 text-center md:max-w-lg md:p-4 lg:max-w-2xl xl:max-w-full">
       <h1 className="mb-2 text-lg font-bold md:text-2xl">
         Dmitrii | Dimterion
       </h1>

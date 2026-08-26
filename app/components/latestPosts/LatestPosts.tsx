@@ -11,7 +11,7 @@ export default function LatestPosts({ posts, limit = 3 }: LatestPostsProps) {
   const latest = sorted.slice(0, limit);
 
   return (
-    <section className="bg-blue mx-auto mt-4 w-full max-w-96 border p-2 md:p-4 lg:max-w-180 xl:max-w-full">
+    <section className="bg-blue max-w-96 border p-2 md:max-w-lg md:p-4 lg:max-w-2xl xl:max-w-full w-full">
       <h2 className="mb-4 text-center text-lg font-bold md:text-xl">
         Latest Posts
       </h2>

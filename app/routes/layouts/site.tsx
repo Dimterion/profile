@@ -10,7 +10,7 @@ export default function SiteLayout({
     <div className="flex min-h-screen flex-col justify-between">
       <Header showPortrait={showPortrait} />
 
-      <main className="mx-auto flex w-full max-w-5xl flex-col items-center p-10 md:px-4">
+      <main className="mx-auto flex w-full max-w-5xl flex-col items-center gap-4 px-10 py-10 md:px-4 md:py-10">
         {children}
       </main>
 
