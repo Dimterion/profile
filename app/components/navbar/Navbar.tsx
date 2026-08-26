@@ -68,7 +68,7 @@ export default function Navbar() {
       </nav>
 
       {/* Mobile navigation */}
-      <div className="mb-2 ml-2 inline-flex flex-col-reverse items-center gap-2.5 md:hidden">
+      <div className="mb-2 ml-2.5 inline-flex flex-col-reverse items-center gap-2.5 md:hidden">
         <button
           type="button"
           aria-label={

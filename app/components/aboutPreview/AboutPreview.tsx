@@ -1,8 +1,9 @@
 import { Link } from "react-router";
+import CornerFrame from "../CornerFrame/CornerFrame";
 
 export default function AboutPreview() {
   return (
-    <section className="bg-blue w-full max-w-96 border p-2 md:max-w-lg md:p-4 lg:max-w-2xl xl:max-w-full">
+    <CornerFrame className="bg-blue w-full max-w-96 border p-2 md:max-w-lg md:p-4 lg:max-w-2xl xl:max-w-full">
       <div>
         <h2 className="mb-4 text-center text-lg font-bold md:text-xl">
           Profile
@@ -29,6 +30,6 @@ export default function AboutPreview() {
           About
         </Link>
       </div>
-    </section>
+    </CornerFrame>
   );
 }
