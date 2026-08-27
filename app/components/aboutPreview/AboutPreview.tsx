@@ -3,11 +3,11 @@ import CornerFrame from "../CornerFrame/CornerFrame";
 
 export default function AboutPreview() {
   return (
-    <CornerFrame className="bg-blue flex w-full max-w-96 flex-col gap-6 border p-2 md:max-w-lg md:p-4 lg:max-w-2xl xl:max-w-full">
+    <CornerFrame className="bg-blue flex w-full max-w-96 flex-col gap-6 border px-2 py-4 md:max-w-lg md:p-4 lg:max-w-2xl xl:max-w-full">
       <h2 className="text-center text-lg font-bold uppercase md:text-xl">
         Profile
       </h2>
-      <div className="grid gap-6 lg:grid-cols-2 lg:gap-2">
+      <div className="grid gap-6 lg:grid-cols-2">
         <div className="bg-dark-blue border p-4">
           <h3 className="mb-4 text-center text-lg font-bold md:text-xl">
             Overview
@@ -36,7 +36,7 @@ export default function AboutPreview() {
         </div>
       </div>
       <Link
-        className="bg-dark-blue hover:text-gold hover:border-gold mx-auto w-fit border px-4 pt-0.5 pb-1 text-sm uppercase transition"
+        className="bg-dark-blue hover:text-gold hover:border-gold mx-auto w-fit border px-4 pt-0.5 pb-1 text-center text-sm uppercase transition"
         to="/about"
       >
         About

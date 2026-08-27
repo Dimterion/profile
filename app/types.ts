@@ -102,4 +102,9 @@ export type DiamondImgProps = {
   link: string;
   alt: string;
   style?: string;
-}
+};
+
+export type CornerFrameProps = {
+  children: ReactNode;
+  className?: string;
+};

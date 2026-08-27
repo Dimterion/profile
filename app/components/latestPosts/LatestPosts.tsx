@@ -12,7 +12,7 @@ export default function LatestPosts({ posts, limit = 3 }: LatestPostsProps) {
   const latest = sorted.slice(0, limit);
 
   return (
-    <CornerFrame className="bg-blue flex w-full max-w-96 flex-col gap-6 border p-2 md:max-w-lg md:p-4 lg:max-w-2xl xl:max-w-full">
+    <CornerFrame className="bg-blue flex w-full max-w-96 flex-col gap-6 border px-2 py-4 md:max-w-lg md:p-4 lg:max-w-2xl xl:max-w-full">
       <h2 className="text-center text-lg font-bold uppercase md:text-xl">
         Latest Posts
       </h2>
@@ -38,7 +38,7 @@ export default function LatestPosts({ posts, limit = 3 }: LatestPostsProps) {
         ))}
       </div>
       <Link
-        className="bg-dark-blue hover:text-gold hover:border-gold mx-auto w-fit border px-4 pt-0.5 pb-1 text-sm uppercase transition"
+        className="bg-dark-blue hover:text-gold hover:border-gold mx-auto w-fit border px-4 pt-0.5 pb-1 text-center text-sm uppercase transition"
         to="/blog"
       >
         All posts
