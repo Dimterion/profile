@@ -37,6 +37,10 @@
   --color-grey: #898989;
 }
 
+* {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--color-black);
   color: var(--color-white);
