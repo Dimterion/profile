@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const sections = [
   { id: "hero", label: "Hero" },
@@ -10,11 +10,38 @@ const sections = [
 export default function SectionNav() {
   const [activeId, setActiveId] = useState("hero");
 
+  useEffect(() => {
+    const observerCallback: IntersectionObserverCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveId(entry.target.id);
+        }
+      });
+    };
+
+    const observerOptions: IntersectionObserverInit = {
+      root: null,
+      rootMargin: "-50% 0px -50% 0px",
+      threshold: 0,
+    };
+
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions,
+    );
+
+    sections.forEach((section) => {
+      const element = document.getElementById(section.id);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   function scrollToSection(id: string) {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
-      setActiveId(id);
     }
   }
 
@@ -27,10 +54,14 @@ export default function SectionNav() {
 
   function goToNext() {
     const currentIndex = sections.findIndex((s) => s.id === activeId);
-    if (currentIndex < sections.length - 1) {
+    if (currentIndex < sections.length - 1 && currentIndex !== -1) {
       scrollToSection(sections[currentIndex + 1].id);
     }
   }
+
+  const currentIndex = sections.findIndex((s) => s.id === activeId);
+  const isFirst = currentIndex <= 0;
+  const isLast = currentIndex === sections.length - 1;
 
   return (
     <nav
@@ -42,9 +73,9 @@ export default function SectionNav() {
           type="button"
           aria-label="Scroll to previous section"
           onClick={goToPrevious}
-          disabled={activeId === sections[0].id}
+          disabled={isFirst}
           className={`cursor-pointer transition-colors ${
-            activeId === sections[0].id
+            isFirst
               ? "cursor-not-allowed text-gray-400"
               : "hover:text-gold text-white"
           }`}
@@ -68,9 +99,9 @@ export default function SectionNav() {
           type="button"
           aria-label="Scroll to next section"
           onClick={goToNext}
-          disabled={activeId === sections[sections.length - 1].id}
+          disabled={isLast}
           className={`cursor-pointer transition-colors ${
-            activeId === sections[sections.length - 1].id
+            isLast
               ? "cursor-not-allowed text-gray-400"
               : "hover:text-gold text-white"
           }`}

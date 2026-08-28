@@ -8,7 +8,6 @@ import { postsMeta } from "~/data/blog/posts-meta";
 import LatestPosts from "~/components/LatestPosts/LatestPosts";
 import SectionConnector from "~/components/SectionConnector/SectionConnector";
 import PageNav from "~/components/PageNav/PageNav";
-import SectionNav from "~/components/SectionNav/SectionNav";
 
 export function meta({}: Route.MetaArgs) {
   return [
