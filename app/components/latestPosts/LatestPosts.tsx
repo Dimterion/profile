@@ -12,12 +12,12 @@ export default function LatestPosts({ posts, limit = 3 }: LatestPostsProps) {
   const latest = sorted.slice(0, limit);
 
   return (
-    <CornerFrame className="bg-blue flex w-full max-w-96 flex-col gap-6 border px-2 py-4 md:max-w-lg md:p-4 lg:max-w-2xl xl:max-w-full">
+    <CornerFrame className="bg-blue flex w-full max-w-96 flex-col gap-8 border px-2 py-4 md:max-w-lg md:p-10 lg:max-w-2xl xl:max-w-full">
       <h2 className="text-center text-lg font-bold uppercase md:text-xl">
         Latest Posts
       </h2>
 
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="grid gap-8 md:grid-cols-2">
         {latest.map((post) => (
           <Link
             to={`/blog/${post.slug}`}
@@ -26,10 +26,10 @@ export default function LatestPosts({ posts, limit = 3 }: LatestPostsProps) {
           >
             <h3 className="mb-1 font-semibold md:text-lg">{post.title}</h3>
 
-            <p className="text-sm">{post.description}</p>
+            <p>{post.description}</p>
 
             <div className="flex items-center justify-between">
-              <time dateTime={post.date} className="mt-1 text-xs">
+              <time dateTime={post.date} className="mt-1 text-sm">
                 {dateFormatter.format(new Date(post.date))}
               </time>
               <ArrowRightIcon className="h-4 w-4" />

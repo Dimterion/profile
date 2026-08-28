@@ -3,7 +3,7 @@ import {
   LinkedinIcon,
   InstagramIcon,
   MailIcon,
-} from "~/components/icons";
+} from "../icons";
 
 const socialLinks = [
   {
@@ -33,7 +33,7 @@ export default function SocialLinks() {
   return (
     <section
       aria-label="Social links"
-      className="fixed right-0 bottom-0 z-50 mr-2.5 mb-1"
+      className="fixed right-0 bottom-0 z-50 mr-2.5 mb-1 md:bottom-1"
     >
       <ul className="flex flex-col gap-1 md:gap-2.5">
         {socialLinks.map((link) => (

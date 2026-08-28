@@ -7,6 +7,7 @@ import type { PostsMeta } from "~/types";
 import { postsMeta } from "~/data/blog/posts-meta";
 import LatestPosts from "~/components/LatestPosts/LatestPosts";
 import SectionConnector from "~/components/SectionConnector/SectionConnector";
+import PageNav from "~/components/PageNav/PageNav";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -32,14 +33,25 @@ export default function HomePage({ loaderData }: Route.ComponentProps) {
   const { projects, posts } = loaderData;
 
   return (
-    <div className="flex flex-col items-center">
-      <Hero />
-      <SectionConnector />
-      <FeaturedProjects projects={projects} count={2} />
-      <SectionConnector />
-      <LatestPosts posts={posts} limit={4} />
-      <SectionConnector />
-      <AboutPreview />
-    </div>
+    <>
+      <PageNav />
+      <div className="flex flex-col items-center">
+        <section id="home" className="w-full">
+          <Hero />
+        </section>
+        <SectionConnector />
+        <section id="work" className="w-full">
+          <FeaturedProjects projects={projects} count={2} />
+        </section>
+        <SectionConnector />
+        <section id="blog" className="w-full">
+          <LatestPosts posts={posts} limit={4} />
+        </section>
+        <SectionConnector />
+        <section id="about" className="w-full">
+          <AboutPreview />
+        </section>
+      </div>
+    </>
   );
 }
