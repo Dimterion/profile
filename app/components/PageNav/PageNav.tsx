@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 
 const sections = [
-  { id: "home", label: "Home" },
+  { id: "hero", label: "Hero" },
   { id: "work", label: "Work" },
   { id: "blog", label: "Blog" },
   { id: "about", label: "About" },
 ];
 
 export default function PageNav() {
-  const [activeId, setActiveId] = useState("home");
+  const [activeId, setActiveId] = useState("hero");
 
   useEffect(() => {
     const observer = new IntersectionObserver(

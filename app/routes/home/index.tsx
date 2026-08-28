@@ -8,6 +8,7 @@ import { postsMeta } from "~/data/blog/posts-meta";
 import LatestPosts from "~/components/LatestPosts/LatestPosts";
 import SectionConnector from "~/components/SectionConnector/SectionConnector";
 import PageNav from "~/components/PageNav/PageNav";
+import SectionNav from "~/components/SectionNav/SectionNav";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -36,7 +37,7 @@ export default function HomePage({ loaderData }: Route.ComponentProps) {
     <>
       <PageNav />
       <div className="flex flex-col items-center">
-        <section id="home" className="w-full">
+        <section id="hero" className="w-full">
           <Hero />
         </section>
         <SectionConnector />
