@@ -12,7 +12,7 @@ export default function LatestPosts({ posts, limit = 3 }: LatestPostsProps) {
   const latest = sorted.slice(0, limit);
 
   return (
-    <CornerFrame className="bg-blue flex w-full max-w-96 flex-col gap-8 border px-2 py-4 md:max-w-lg md:p-10 lg:max-w-2xl xl:max-w-full">
+    <CornerFrame className="bg-blue flex min-h-screen w-full max-w-96 flex-col items-center justify-center gap-8 border px-2 py-4 md:max-w-lg md:p-10 lg:max-w-2xl xl:max-w-full">
       <h2 className="text-center text-lg font-bold uppercase md:text-xl">
         Latest Posts
       </h2>

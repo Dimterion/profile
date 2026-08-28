@@ -10,7 +10,7 @@ const links = [
 
 export default function Hero() {
   return (
-    <CornerFrame className="bg-blue w-full max-w-96 border px-2 py-4 text-center md:max-w-lg md:px-4 md:py-20 lg:max-w-2xl xl:max-w-full">
+    <CornerFrame className="bg-blue flex min-h-screen w-full max-w-96 flex-col items-center justify-center border px-2 py-4 text-center md:max-w-lg md:px-4 md:py-20 lg:max-w-2xl xl:max-w-full">
       <h1 className="mb-7 text-lg font-bold md:text-2xl">
         Dmitrii | Dimterion
       </h1>

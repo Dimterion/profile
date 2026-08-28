@@ -3,7 +3,7 @@ import SiteLayout from "./site";
 
 export default function HomeLayout() {
   return (
-    <SiteLayout showPortrait>
+    <SiteLayout showPortrait noTopBottomPadding>
       <Outlet />
     </SiteLayout>
   );

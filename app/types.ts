@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 export type SiteLayoutProps = {
   children: ReactNode;
   showPortrait?: boolean;
+  noTopBottomPadding?: boolean;
 };
 
 export type IconProps = {
