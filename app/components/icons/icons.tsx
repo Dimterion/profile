@@ -147,6 +147,48 @@ export function CloseIcon({ className = "h-4 w-4 md:h-5 md:w-5" }: IconProps) {
   );
 }
 
+export function ArrowUpIcon({
+  className = "h-4 w-4 md:h-5 md:w-5",
+}: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M12 19V5" />
+      <path d="m5 12 7-7 7 7" />
+    </svg>
+  );
+}
+
+export function ArrowDownIcon({
+  className = "h-4 w-4 md:h-5 md:w-5",
+}: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M12 5v14" />
+      <path d="m5 12 7 7 7-7" />
+    </svg>
+  );
+}
+
 export function ArrowRightIcon({
   className = "h-4 w-4 md:h-5 md:w-5",
 }: IconProps) {
