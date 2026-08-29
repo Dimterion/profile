@@ -19,16 +19,11 @@ export default function SectionNav() {
       });
     };
 
-    const observerOptions: IntersectionObserverInit = {
+    const observer = new IntersectionObserver(observerCallback, {
       root: null,
       rootMargin: "-50% 0px -50% 0px",
       threshold: 0,
-    };
-
-    const observer = new IntersectionObserver(
-      observerCallback,
-      observerOptions,
-    );
+    });
 
     sections.forEach((section) => {
       const element = document.getElementById(section.id);
@@ -40,44 +35,29 @@ export default function SectionNav() {
 
   function scrollToSection(id: string) {
     const element = document.getElementById(id);
-
     if (!element) return;
 
-    const index = sections.findIndex((section) => section.id === id);
-
-    if (index === 0) {
-      window.scrollTo({
-        top: 0,
-        behavior: "instant",
-      });
-      return;
-    }
-
-    if (index === sections.length - 1) {
-      window.scrollTo({
-        top: document.documentElement.scrollHeight,
-        behavior: "instant",
-      });
-      return;
-    }
-
     element.scrollIntoView({
-      behavior: "instant",
+      behavior: "smooth",
       block: "start",
     });
   }
 
-  function goToPrevious() {
+  function goToPrevious(event: React.MouseEvent<HTMLButtonElement>) {
+    event.currentTarget.blur();
     const currentIndex = sections.findIndex((s) => s.id === activeId);
     if (currentIndex > 0) {
-      scrollToSection(sections[currentIndex - 1].id);
+      const targetId = sections[currentIndex - 1].id;
+      requestAnimationFrame(() => scrollToSection(targetId));
     }
   }
 
-  function goToNext() {
+  function goToNext(event: React.MouseEvent<HTMLButtonElement>) {
+    event.currentTarget.blur();
     const currentIndex = sections.findIndex((s) => s.id === activeId);
     if (currentIndex < sections.length - 1 && currentIndex !== -1) {
-      scrollToSection(sections[currentIndex + 1].id);
+      const targetId = sections[currentIndex + 1].id;
+      requestAnimationFrame(() => scrollToSection(targetId));
     }
   }
 
