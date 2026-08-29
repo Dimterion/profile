@@ -40,9 +40,31 @@ export default function SectionNav() {
 
   function scrollToSection(id: string) {
     const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    if (!element) return;
+
+    const index = sections.findIndex((section) => section.id === id);
+
+    if (index === 0) {
+      window.scrollTo({
+        top: 0,
+        behavior: "instant",
+      });
+      return;
     }
+
+    if (index === sections.length - 1) {
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: "instant",
+      });
+      return;
+    }
+
+    element.scrollIntoView({
+      behavior: "instant",
+      block: "start",
+    });
   }
 
   function goToPrevious() {
