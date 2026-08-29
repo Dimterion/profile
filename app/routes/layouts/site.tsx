@@ -1,6 +1,7 @@
 import type { SiteLayoutProps } from "~/types";
 import Header from "../../components/Header/Header";
 import Footer from "~/components/Footer/Footer";
+import ParallaxBackground from "~/components/ParallaxBackground/ParallaxBackground";
 
 export default function SiteLayout({
   children,
@@ -9,6 +10,7 @@ export default function SiteLayout({
 }: SiteLayoutProps) {
   return (
     <div className="flex min-h-screen flex-col justify-between">
+      <ParallaxBackground />
       <Header showPortrait={showPortrait} />
 
       <main
