@@ -71,20 +71,20 @@ export default function ProjectDetailsPage({
           </div>
           <p className="mb-6">{project.description}</p>
         </div>
+        <div className="flex flex-col gap-2">
+          {project.links.map((link) => (
+            <a
+              key={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              href={link.href}
+              className="underline"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
       </article>
-      <div className="flex gap-2">
-        {project.links.map((link) => (
-          <a
-            key={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            href={link.href}
-            className="underline"
-          >
-            {link.label}
-          </a>
-        ))}
-      </div>
     </section>
   );
 }
