@@ -25,28 +25,36 @@ export default function LanguageToggle() {
   }
 
   return (
-    <div className="fixed top-4 right-4 z-50" onBlur={handleBlur} tabIndex={0}>
-      <button
-        type="button"
-        onClick={handleToggle}
-        aria-label={`Switch language, currently ${currentLang.toUpperCase()}`}
-        className="bg-dark-blue hover:border-gold hover:text-gold flex h-10 w-10 items-center justify-center border text-sm font-bold uppercase transition"
-        style={{ clipPath: "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)" }}
-      >
-        {currentLang}
-      </button>
+    <div
+      className="fixed top-0 right-0 z-50 mt-1 mr-2.5 md:top-1"
+      onBlur={handleBlur}
+      tabIndex={0}
+    >
+      <ul>
+        <li>
+          <button
+            type="button"
+            onClick={handleToggle}
+            aria-label={`Switch language, currently ${currentLang.toUpperCase()}`}
+            className="bg-blue hover:border-gold hover:text-gold inline-flex h-5 w-5 rotate-45 items-center justify-center border text-[10px] font-bold uppercase transition-transform focus-visible:outline-2 focus-visible:outline-offset-2 md:h-7 md:w-7 md:text-xs"
+          >
+            <span className="-rotate-45">{currentLang}</span>
+          </button>
+        </li>
 
-      {isOpen && (
-        <button
-          type="button"
-          onClick={() => handleSelect(otherLang)}
-          aria-label={`Switch to ${otherLang.toUpperCase()}`}
-          className="bg-dark-blue hover:border-gold hover:text-gold absolute top-14 left-0 flex h-10 w-10 items-center justify-center border text-sm font-bold uppercase transition"
-          style={{ clipPath: "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)" }}
-        >
-          {otherLang}
-        </button>
-      )}
+        {isOpen && (
+          <li className="mt-1 md:mt-3">
+            <button
+              type="button"
+              onClick={() => handleSelect(otherLang)}
+              aria-label={`Switch to ${otherLang.toUpperCase()}`}
+              className="bg-blue hover:border-gold hover:text-gold inline-flex h-5 w-5 rotate-45 items-center justify-center border text-[10px] font-bold uppercase transition-transform focus-visible:outline-2 focus-visible:outline-offset-2 md:h-7 md:w-7 md:text-xs"
+            >
+              <span className="-rotate-45">{otherLang}</span>
+            </button>
+          </li>
+        )}
+      </ul>
     </div>
   );
 }
