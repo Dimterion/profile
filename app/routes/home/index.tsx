@@ -1,8 +1,6 @@
 import type { Route } from "./+types/index";
 import Hero from "~/components/Hero/Hero";
 import FeaturedProjects from "~/components/FeaturedProjects/FeaturedProjects";
-import { siteText } from "~/data/content";
-import AboutPreview from "~/components/AboutPreview/AboutPreview";
 import type { PostsMeta } from "~/types";
 import { postsMeta } from "~/data/blog/posts-meta";
 import LatestPosts from "~/components/LatestPosts/LatestPosts";
@@ -10,11 +8,14 @@ import SectionConnector from "~/components/SectionConnector/SectionConnector";
 import PageNav from "~/components/PageNav/PageNav";
 import SectionNav from "~/components/SectionNav/SectionNav";
 import ScrollToTopBottom from "~/components/ScrollToTopBottom/ScrollToTopBottom";
+import AboutPreview from "~/components/AboutPreview/AboutPreview";
+import { en } from "~/data/content/en";
+import { siteText } from "~/data/content";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Dimterion | Profile" },
-    { name: "description", content: "Dimterion's profile" },
+    { title: en.meta.title },
+    { name: "description", content: en.meta.description },
   ];
 }
 

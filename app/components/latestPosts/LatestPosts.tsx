@@ -3,8 +3,11 @@ import type { LatestPostsProps } from "~/types";
 import { ArrowRightIcon } from "../icons";
 import { dateFormatter } from "~/utils";
 import CornerFrame from "../CornerFrame/CornerFrame";
+import { useContent } from "~/hooks/useContent";
 
 export default function LatestPosts({ posts, limit = 3 }: LatestPostsProps) {
+  const { t } = useContent();
+
   const sorted = [...posts].sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
   );
@@ -14,7 +17,7 @@ export default function LatestPosts({ posts, limit = 3 }: LatestPostsProps) {
   return (
     <CornerFrame className="bg-blue flex min-h-screen w-full max-w-96 flex-col items-center justify-center gap-8 border px-2 py-4 md:max-w-lg md:p-10 lg:max-w-2xl xl:max-w-full">
       <h2 className="text-center text-lg font-bold uppercase md:text-xl">
-        Latest Posts
+        {t.blog.title}
       </h2>
 
       <div className="grid gap-8 md:grid-cols-2">
@@ -41,7 +44,7 @@ export default function LatestPosts({ posts, limit = 3 }: LatestPostsProps) {
         className="bg-dark-blue hover:text-gold hover:border-gold mx-auto w-fit border px-4 pt-0.5 pb-1 text-center text-sm uppercase transition"
         to="/blog"
       >
-        All posts
+        {t.blog.cta}
       </Link>
     </CornerFrame>
   );
