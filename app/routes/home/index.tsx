@@ -10,12 +10,24 @@ import SectionNav from "~/components/SectionNav/SectionNav";
 import ScrollToTopBottom from "~/components/ScrollToTopBottom/ScrollToTopBottom";
 import AboutPreview from "~/components/AboutPreview/AboutPreview";
 import { en } from "~/data/content/en";
+import { fr } from "~/data/content/fr";
 import { siteText } from "~/data/content";
 
+function getCurrentLanguage() {
+  if (typeof window === "undefined") return "en";
+
+  const saved = localStorage.getItem("language");
+  if (saved === "fr") return "fr";
+  return "en";
+}
+
 export function meta({}: Route.MetaArgs) {
+  const lang = getCurrentLanguage();
+  const content = lang === "fr" ? fr : en;
+
   return [
-    { title: en.meta.title },
-    { name: "description", content: en.meta.description },
+    { title: content.meta.title },
+    { name: "description", content: content.meta.description },
   ];
 }
 
