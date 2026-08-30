@@ -9,6 +9,7 @@ type LanguageContextValue = {
   currentLang: Language;
   setLanguage: (lang: Language) => void;
   availableLanguages: Language[];
+  isInitialized: boolean;
 };
 
 const LanguageContext = createContext<LanguageContextValue | undefined>(
@@ -23,6 +24,7 @@ function getBrowserLanguage(): Language {
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [currentLang, setCurrentLang] = useState<Language>("en");
+  const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
     const saved = localStorage.getItem("language") as Language | null;
@@ -32,6 +34,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     } else {
       setCurrentLang(getBrowserLanguage());
     }
+
+    setIsInitialized(true);
   }, []);
 
   function setLanguage(lang: Language) {
@@ -47,9 +51,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
         currentLang,
         setLanguage,
         availableLanguages: AVAILABLE_LANGUAGES,
+        isInitialized,
       }}
     >
-      {children}
+      {isInitialized ? children : <div className="min-h-screen bg-black" />}
     </LanguageContext.Provider>
   );
 }
