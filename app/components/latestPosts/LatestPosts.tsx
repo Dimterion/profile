@@ -1,14 +1,13 @@
 import { Link } from "react-router";
-import type { LatestPostsProps } from "~/types";
 import { ArrowRightIcon } from "../icons";
 import { dateFormatter } from "~/utils";
 import CornerFrame from "../CornerFrame/CornerFrame";
 import { useContent } from "~/hooks/useContent";
 
-export default function LatestPosts({ posts, limit = 3 }: LatestPostsProps) {
+export default function LatestPosts({ limit = 3 }: { limit?: number }) {
   const { t } = useContent();
 
-  const sorted = [...posts].sort(
+  const sorted = [...t.posts.items].sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
   );
 
@@ -35,11 +34,13 @@ export default function LatestPosts({ posts, limit = 3 }: LatestPostsProps) {
               <time dateTime={post.date} className="mt-1 text-sm">
                 {dateFormatter.format(new Date(post.date))}
               </time>
+
               <ArrowRightIcon className="h-4 w-4" />
             </div>
           </Link>
         ))}
       </div>
+
       <Link
         className="bg-dark-blue hover:text-gold hover:border-gold mx-auto w-fit border px-4 pt-0.5 pb-1 text-center text-sm uppercase transition"
         to="/blog"

@@ -65,9 +65,9 @@ export default function HomePage() {
 
         <SectionConnector />
 
-        {/* <section id="blog" className="w-full">
+        <section id="blog" className="w-full">
           <LatestPosts limit={4} />
-        </section> */}
+        </section>
 
         <SectionConnector />
 
