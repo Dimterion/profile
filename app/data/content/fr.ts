@@ -50,6 +50,7 @@ export const fr: ContentShape = {
         id: "project-01",
         slug: "interactive-stories-platform",
         buttonLabel: "1",
+        featured: true,
         label: "Narration interactive",
         title: "Plateforme d’histoires interactives",
         description:
@@ -75,6 +76,7 @@ export const fr: ContentShape = {
         id: "project-02",
         slug: "dimterion-com",
         buttonLabel: "2",
+        featured: true,
         label: "Site personnel",
         title: "dimterion.com",
         description:

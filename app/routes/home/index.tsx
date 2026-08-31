@@ -45,27 +45,32 @@ export async function loader() {
   };
 }
 
-export default function HomePage({ loaderData }: Route.ComponentProps) {
-  const { projects, posts } = loaderData;
-
+export default function HomePage() {
   return (
     <>
       <SectionNav />
       <ScrollToTopBottom />
       <PageNav />
+
       <div className="flex flex-col items-center">
         <section id="hero" className="w-full">
           <Hero />
         </section>
+
         <SectionConnector />
+
         <section id="work" className="w-full">
-          <FeaturedProjects projects={projects} count={2} />
+          <FeaturedProjects count={2} />
         </section>
+
         <SectionConnector />
-        <section id="blog" className="w-full">
-          <LatestPosts posts={posts} limit={4} />
-        </section>
+
+        {/* <section id="blog" className="w-full">
+          <LatestPosts limit={4} />
+        </section> */}
+
         <SectionConnector />
+
         <section id="about" className="w-full">
           <AboutPreview />
         </section>
