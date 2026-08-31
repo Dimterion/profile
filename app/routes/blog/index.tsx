@@ -1,6 +1,6 @@
 import type { Route } from "./+types";
 import { postsMeta } from "~/data/blog/posts-meta";
-import PostCard from "~/components/postCard/PostCard";
+import PostCard from "~/components/PostCard/PostCard";
 import { useState } from "react";
 import Pagination from "~/components/pagination/Pagination";
 import PostFilter from "~/components/postFilter/PostFilter";
