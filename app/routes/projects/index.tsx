@@ -2,11 +2,13 @@ import { useState } from "react";
 import type { Route } from "./+types/index";
 import { en } from "~/data/content/en";
 import { fr } from "~/data/content/fr";
+import { useContent } from "~/hooks/useContent";
 import ProjectCard from "~/components/ProjectCard/ProjectCard";
 import Pagination from "~/components/pagination/Pagination";
 
 function getCurrentLanguage() {
   if (typeof window === "undefined") return "en";
+
   const saved = localStorage.getItem("language");
   if (saved === "fr") return "fr";
   return "en";
@@ -31,12 +33,14 @@ export async function loader({}: Route.LoaderArgs) {
   };
 }
 
-export default function ProjectsPage({ loaderData }: Route.ComponentProps) {
+export default function ProjectsPage() {
+  const { t } = useContent();
+
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
 
   const projectsPerPage = 6;
-  const { projects } = loaderData;
+  const projects = t.projects.items;
 
   const categories = [
     "All",
@@ -56,11 +60,12 @@ export default function ProjectsPage({ loaderData }: Route.ComponentProps) {
 
   return (
     <>
-      <h2 className="font-bold">Projects</h2>
+      <h2 className="font-bold">{t.work.title}</h2>
       <div className="bg-blue flex w-full max-w-96 flex-wrap justify-center gap-2 border p-2 md:max-w-lg md:p-4 lg:max-w-2xl xl:max-w-full">
         {categories.map((category) => (
           <button
             key={category}
+            type="button"
             onClick={() => {
               setSelectedCategory(category);
               setCurrentPage(1);
