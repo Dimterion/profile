@@ -2,7 +2,6 @@ import type { Route } from "./+types/index";
 import Hero from "~/components/Hero/Hero";
 import FeaturedProjects from "~/components/FeaturedProjects/FeaturedProjects";
 import type { PostsMeta } from "~/types";
-import { postsMeta } from "~/data/blog/posts-meta";
 import LatestPosts from "~/components/LatestPosts/LatestPosts";
 import SectionConnector from "~/components/SectionConnector/SectionConnector";
 import PageNav from "~/components/PageNav/PageNav";
@@ -11,7 +10,6 @@ import ScrollToTopBottom from "~/components/ScrollToTopBottom/ScrollToTopBottom"
 import AboutPreview from "~/components/AboutPreview/AboutPreview";
 import { en } from "~/data/content/en";
 import { fr } from "~/data/content/fr";
-import { siteText } from "~/data/content";
 
 function getCurrentLanguage() {
   if (typeof window === "undefined") return "en";
@@ -37,10 +35,13 @@ export function sortPostsLatestFirst(posts: PostsMeta[]) {
   );
 }
 
-export async function loader({}: Route.LoaderArgs) {
+export async function loader() {
+  const lang = getCurrentLanguage();
+  const content = lang === "fr" ? fr : en;
+
   return {
-    projects: siteText.en.projects.items,
-    posts: sortPostsLatestFirst(postsMeta.en),
+    projects: content.projects.items,
+    posts: content.posts.items,
   };
 }
 

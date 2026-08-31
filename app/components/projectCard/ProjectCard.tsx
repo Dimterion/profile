@@ -1,12 +1,16 @@
 import { Link } from "react-router";
 import type { Project } from "~/types";
+import { useContent } from "~/hooks/useContent";
 import { ArrowRightIcon } from "../icons";
 
 export default function ProjectCard({ project }: { project: Project }) {
+  const { t } = useContent();
+
   return (
     <Link
       to={`/projects/${project.slug}`}
       className="project-card-enter group bg-dark-blue flex transform flex-col border transition duration-100"
+      aria-label={`${t.projects.viewProject}: ${project.title}`}
     >
       <div className="overflow-hidden">
         <img

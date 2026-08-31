@@ -1,8 +1,16 @@
 import { useState } from "react";
 import type { Route } from "./+types/index";
-import { siteText } from "../../data/content";
+import { en } from "~/data/content/en";
+import { fr } from "~/data/content/fr";
 import ProjectCard from "~/components/ProjectCard/ProjectCard";
 import Pagination from "~/components/pagination/Pagination";
+
+function getCurrentLanguage() {
+  if (typeof window === "undefined") return "en";
+  const saved = localStorage.getItem("language");
+  if (saved === "fr") return "fr";
+  return "en";
+}
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -15,8 +23,11 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export async function loader({}: Route.LoaderArgs) {
+  const lang = getCurrentLanguage();
+  const content = lang === "fr" ? fr : en;
+
   return {
-    projects: siteText.en.projects.items,
+    projects: content.projects.items,
   };
 }
 
@@ -54,7 +65,9 @@ export default function ProjectsPage({ loaderData }: Route.ComponentProps) {
               setSelectedCategory(category);
               setCurrentPage(1);
             }}
-            className={`cursor-pointer px-3 py-1 text-sm text-white ${selectedCategory === category ? "bg-dark-blue" : "bg-grey"}`}
+            className={`cursor-pointer px-3 py-1 text-sm text-white ${
+              selectedCategory === category ? "bg-dark-blue" : "bg-grey"
+            }`}
           >
             {category}
           </button>

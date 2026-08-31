@@ -1,7 +1,15 @@
 import type { Route } from "./+types/details";
 import { data, Link } from "react-router";
-import { siteText } from "../../data/content";
+import { en } from "~/data/content/en";
+import { fr } from "~/data/content/fr";
 import { ArrowLeftIcon } from "~/components/icons/icons";
+
+function getCurrentLanguage() {
+  if (typeof window === "undefined") return "en";
+  const saved = localStorage.getItem("language");
+  if (saved === "fr") return "fr";
+  return "en";
+}
 
 export function meta({ loaderData }: Route.MetaArgs) {
   const project = loaderData?.project;
@@ -26,7 +34,10 @@ export function meta({ loaderData }: Route.MetaArgs) {
 }
 
 export async function loader({ params }: Route.LoaderArgs) {
-  const project = siteText.en.projects.items.find(
+  const lang = getCurrentLanguage();
+  const content = lang === "fr" ? fr : en;
+
+  const project = content.projects.items.find(
     (item) => item.slug === params.slug,
   );
 
