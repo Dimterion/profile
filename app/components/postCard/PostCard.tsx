@@ -1,7 +1,10 @@
 import { Link } from "react-router";
 import type { PostsMeta } from "~/types";
+import { useContent } from "~/hooks/useContent";
 
 export default function PostCard({ post }: { post: PostsMeta }) {
+  const { t } = useContent();
+
   const formattedDate = new Intl.DateTimeFormat("en-GB", {
     day: "numeric",
     month: "long",
@@ -16,7 +19,7 @@ export default function PostCard({ post }: { post: PostsMeta }) {
       </time>
       <p className="mb-4">{post.description}</p>
       <Link to={`/blog/${post.slug}`} className="text-sm hover:underline">
-        Read More
+        {t.posts.readMore}
       </Link>
     </article>
   );
