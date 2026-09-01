@@ -193,6 +193,9 @@ export const en: ContentShape = {
     ],
   },
   posts: {
+    title: "Latest Posts",
+    cta: "All posts",
+    noPostsFound: "No posts found.",
     readMore: "Read more",
     items: [
       {

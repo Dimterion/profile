@@ -1,7 +1,7 @@
+import { useEffect, useMemo, useState } from "react";
 import type { Route } from "./+types";
-import { postsMeta } from "~/data/blog/posts-meta";
+import { useContent } from "~/hooks/useContent";
 import PostCard from "~/components/PostCard/PostCard";
-import { useState } from "react";
 import Pagination from "~/components/pagination/Pagination";
 import PostFilter from "~/components/postFilter/PostFilter";
 
@@ -15,40 +15,42 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-export async function loader({}: Route.LoaderArgs) {
-  const sortedPosts = [...postsMeta.en].sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-  );
+export default function BlogPage() {
+  const { t, currentLang } = useContent();
 
-  return {
-    posts: sortedPosts,
-  };
-}
-
-export default function BlogPage({ loaderData }: Route.ComponentProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+
   const postsPerPage = 10;
 
-  const { posts } = loaderData;
+  const posts = useMemo(() => {
+    return [...t.posts.items].sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+    );
+  }, [t.posts.items]);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [currentLang]);
 
   const filteredPosts = posts.filter((post) => {
     const query = searchQuery.toLowerCase();
 
     return (
       post.title.toLowerCase().includes(query) ||
-      post.description.toLocaleLowerCase().includes(query)
+      post.description.toLowerCase().includes(query)
     );
   });
 
   const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
+
   const indexOfLast = currentPage * postsPerPage;
   const indexOfFirst = indexOfLast - postsPerPage;
   const currentPosts = filteredPosts.slice(indexOfFirst, indexOfLast);
 
   return (
     <>
-      <h2 className="font-bold">Blog</h2>
+      <h2 className="font-bold">{t.posts.title}</h2>
 
       <PostFilter
         searchQuery={searchQuery}
@@ -57,9 +59,10 @@ export default function BlogPage({ loaderData }: Route.ComponentProps) {
           setCurrentPage(1);
         }}
       />
+
       <div className="bg-blue w-full max-w-96 space-y-4 border p-2 md:max-w-lg md:p-4 lg:max-w-2xl xl:max-w-full">
         {currentPosts.length === 0 ? (
-          <p className="text-center">No posts found.</p>
+          <p className="text-center">{t.posts.noPostsFound}</p>
         ) : (
           currentPosts.map((post) => <PostCard key={post.id} post={post} />)
         )}
@@ -69,7 +72,7 @@ export default function BlogPage({ loaderData }: Route.ComponentProps) {
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}
-          onPageChange={(page) => setCurrentPage(page)}
+          onPageChange={setCurrentPage}
         />
       )}
     </>

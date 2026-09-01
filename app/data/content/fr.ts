@@ -197,6 +197,9 @@ export const fr: ContentShape = {
     ],
   },
   posts: {
+    title: "Derniers articles",
+    cta: "Tous les articles",
+    noPostsFound: "Aucun article trouvé.",
     readMore: "Lire la suite",
     items: [
       {

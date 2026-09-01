@@ -148,5 +148,8 @@ export type ContentShape = {
   posts: {
     readMore: string;
     items: PostsMeta[];
+    title: string;
+    cta: string;
+    noPostsFound: string;
   };
 };
