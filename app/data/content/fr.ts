@@ -41,6 +41,16 @@ export const fr: ContentShape = {
       "Articles Medium hebdomadaires tous les vendredis : plus de 4 ans.",
       "Séquence Duolingo : plus de 4 400 jours.",
     ],
+    skillsTitle: "Compétences",
+    skills: [
+      "Développement web",
+      "Consulting technique",
+      "QA",
+      "Tests",
+      "Conception web",
+      "Rédaction technique",
+      "Documentation",
+    ],
     cta: "À propos",
   },
   projects: {

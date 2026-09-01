@@ -41,6 +41,16 @@ export const en: ContentShape = {
       "Weekly Medium posts every Friday: 4+ years.",
       "Duolingo streak: 4,400+ days.",
     ],
+    skillsTitle: "Skills",
+    skills: [
+      "Web Development",
+      "Tech Consultations",
+      "QA",
+      "Testing",
+      "Web Design",
+      "Tech Writing",
+      "Documentation",
+    ],
     cta: "About",
   },
   projects: {

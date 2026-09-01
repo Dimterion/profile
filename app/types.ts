@@ -139,6 +139,8 @@ export type ContentShape = {
     overviewText: string;
     highlightsTitle: string;
     highlights: string[];
+    skillsTitle?: string;
+    skills: string[];
     cta: string;
   };
   projects: {
