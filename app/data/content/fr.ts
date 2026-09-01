@@ -53,6 +53,22 @@ export const fr: ContentShape = {
     ],
     cta: "À propos",
   },
+  contact: {
+    title: "Contact",
+    nameLabel: "Nom",
+    emailLabel: "E-mail",
+    subjectLabel: "Objet",
+    messageLabel: "Message",
+    sendButton: "Envoyer le message",
+    successMessage: "Formulaire envoyé",
+    errors: {
+      nameRequired: "Le nom est requis",
+      emailRequired: "L’e-mail est requis",
+      emailInvalid: "Format d’e-mail invalide",
+      subjectRequired: "L’objet est requis",
+      messageRequired: "Le message est requis",
+    },
+  },
   projects: {
     viewProject: "Voir le projet",
     items: [

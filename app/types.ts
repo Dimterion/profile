@@ -143,6 +143,22 @@ export type ContentShape = {
     skills: string[];
     cta: string;
   };
+  contact: {
+    title: string;
+    nameLabel: string;
+    emailLabel: string;
+    subjectLabel: string;
+    messageLabel: string;
+    sendButton: string;
+    successMessage: string;
+    errors: {
+      nameRequired: string;
+      emailRequired: string;
+      emailInvalid: string;
+      subjectRequired: string;
+      messageRequired: string;
+    };
+  };
   projects: {
     viewProject: string;
     items: Project[];
