@@ -161,6 +161,7 @@ export type ContentShape = {
   };
   projects: {
     viewProject: string;
+    backToProjects: string;
     items: Project[];
   };
   posts: {

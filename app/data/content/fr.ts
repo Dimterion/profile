@@ -71,6 +71,7 @@ export const fr: ContentShape = {
   },
   projects: {
     viewProject: "Voir le projet",
+    backToProjects: "Retour aux projets",
     items: [
       {
         id: "project-01",

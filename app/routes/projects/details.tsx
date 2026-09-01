@@ -3,16 +3,12 @@ import { data, Link } from "react-router";
 import { en } from "~/data/content/en";
 import { fr } from "~/data/content/fr";
 import { ArrowLeftIcon } from "~/components/icons/icons";
-
-function getCurrentLanguage() {
-  if (typeof window === "undefined") return "en";
-  const saved = localStorage.getItem("language");
-  if (saved === "fr") return "fr";
-  return "en";
-}
+import { useContent } from "~/hooks/useContent";
 
 export function meta({ loaderData }: Route.MetaArgs) {
-  const project = loaderData?.project;
+  const { projectEn, projectFr } = loaderData || {};
+
+  const project = projectEn ?? projectFr;
 
   if (!project) {
     return [
@@ -34,24 +30,37 @@ export function meta({ loaderData }: Route.MetaArgs) {
 }
 
 export async function loader({ params }: Route.LoaderArgs) {
-  const lang = getCurrentLanguage();
-  const content = lang === "fr" ? fr : en;
+  const projectEn = en.projects.items.find((item) => item.slug === params.slug);
+  const projectFr = fr.projects.items.find((item) => item.slug === params.slug);
 
-  const project = content.projects.items.find(
-    (item) => item.slug === params.slug,
-  );
-
-  if (!project) {
+  if (!projectEn && !projectFr) {
     throw data("Project not found", { status: 404 });
   }
 
-  return { project };
+  return {
+    projectEn,
+    projectFr,
+    backToProjectsEn: en.projects.backToProjects,
+    backToProjectsFr: fr.projects.backToProjects,
+  };
 }
 
 export default function ProjectDetailsPage({
   loaderData,
 }: Route.ComponentProps) {
-  const { project } = loaderData;
+  const { t, currentLang } = useContent();
+  const { projectEn, projectFr, backToProjectsEn, backToProjectsFr } =
+    loaderData;
+
+  const project = currentLang === "fr" ? projectFr : projectEn;
+  const backToProjects =
+    currentLang === "fr" ? backToProjectsFr : backToProjectsEn;
+
+  const resolvedProject = project ?? projectEn ?? projectFr;
+
+  if (!resolvedProject) {
+    return <div>Project not found</div>;
+  }
 
   return (
     <section className="w-full max-w-96 space-y-4 md:max-w-lg md:p-4 lg:max-w-2xl xl:max-w-full">
@@ -59,31 +68,32 @@ export default function ProjectDetailsPage({
         to="/projects"
         className="md:text-md flex w-fit items-center gap-2 border p-2 text-sm"
       >
-        <ArrowLeftIcon /> Back to projects
+        <ArrowLeftIcon /> {backToProjects}
       </Link>
+
       <article className="bg-blue grid items-start gap-8 border p-2 md:grid-cols-2">
         <div>
           <img
-            src={project.image.link}
-            alt={project.image.description}
+            src={resolvedProject.image.link}
+            alt={resolvedProject.image.description}
             className="w-full shadow-md"
           />
         </div>
         <div>
           <h1 className="mb-4 text-xl font-bold md:text-2xl">
-            {project.title}
+            {resolvedProject.title}
           </h1>
           <div className="mb-4 flex flex-wrap gap-2 space-x-2">
-            {project.stack.map((item) => (
+            {resolvedProject.stack.map((item) => (
               <span key={item} className="border px-2 py-1">
                 {item}
               </span>
             ))}
           </div>
-          <p className="mb-6">{project.description}</p>
+          <p className="mb-6">{resolvedProject.description}</p>
         </div>
         <div className="flex flex-col gap-2">
-          {project.links.map((link) => (
+          {resolvedProject.links.map((link) => (
             <a
               key={link.href}
               target="_blank"
