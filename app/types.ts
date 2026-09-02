@@ -84,8 +84,10 @@ export type PostsByLanguage = {
 
 export type BlogDetailsPageProps = {
   loaderData: {
-    post: PostsMeta;
-    content: string;
+    postEn: PostsMeta | undefined;
+    postFr: PostsMeta | undefined;
+    contentEn: string | undefined;
+    contentFr: string | undefined;
   };
 };
 

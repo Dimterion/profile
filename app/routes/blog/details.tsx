@@ -27,7 +27,7 @@ export function meta({ loaderData }: Route.MetaArgs) {
   ];
 }
 
-export async function loader({ params }: Route.LoaderArgs) {
+export async function loader({ params, context }: Route.LoaderArgs) {
   const postEn = en.posts.items.find((item) => item.slug === params.slug);
   const postFr = fr.posts.items.find((item) => item.slug === params.slug);
 
@@ -36,28 +36,36 @@ export async function loader({ params }: Route.LoaderArgs) {
   }
 
   const slug = (postEn ?? postFr)!.slug;
-  const filePath = `../../data/blog/posts/${slug}.md`;
-  const content = postFiles[filePath];
 
-  if (!content) {
+  const filePathEn = `../../data/blog/posts/${slug}.en.md`;
+  const filePathFr = `../../data/blog/posts/${slug}.fr.md`;
+
+  const contentEn = postFiles[filePathEn];
+  const contentFr = postFiles[filePathFr];
+
+  if (!contentEn && !contentFr) {
     throw data("Post content not found", { status: 404 });
   }
 
   return {
     postEn,
     postFr,
-    content,
+    contentEn,
+    contentFr,
   };
 }
 
 export default function BlogDetailsPage({ loaderData }: BlogDetailsPageProps) {
   const { t, currentLang } = useContent();
-  const { postEn, postFr, content } = loaderData;
+  const { postEn, postFr, contentEn, contentFr } = loaderData;
 
   const post = currentLang === "fr" ? postFr : postEn;
-  const resolvedPost = post ?? postEn ?? postFr;
+  const content = currentLang === "fr" ? contentFr : contentEn;
 
-  if (!resolvedPost) {
+  const resolvedPost = post ?? postEn ?? postFr;
+  const resolvedContent = content ?? contentEn ?? contentFr;
+
+  if (!resolvedPost || !resolvedContent) {
     return <div>Post not found</div>;
   }
 
@@ -70,7 +78,7 @@ export default function BlogDetailsPage({ loaderData }: BlogDetailsPageProps) {
   return (
     <article className="prose mx-auto w-full max-w-96 p-2 text-white md:max-w-lg md:p-4 lg:max-w-2xl xl:max-w-full">
       <Link to="/blog" className="not-prose underline">
-        {t.posts.backToBlog}
+        {t.posts.backToBlog ?? "Back to blog"}
       </Link>
 
       <header className="not-prose mb-8">
@@ -83,7 +91,7 @@ export default function BlogDetailsPage({ loaderData }: BlogDetailsPageProps) {
       </header>
 
       <div className="prose mb-12 max-w-none">
-        <ReactMarkdown>{content}</ReactMarkdown>
+        <ReactMarkdown>{resolvedContent}</ReactMarkdown>
       </div>
     </article>
   );
