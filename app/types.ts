@@ -86,8 +86,8 @@ export type BlogDetailsPageProps = {
   loaderData: {
     postEn: PostsMeta | undefined;
     postFr: PostsMeta | undefined;
-    contentEn: string | undefined;
-    contentFr: string | undefined;
+    contentEn: string;
+    contentFr: string;
   };
 };
 
@@ -168,7 +168,7 @@ export type ContentShape = {
   };
   posts: {
     readMore: string;
-    items: PostsMeta[];
+    items?: PostsMeta[];
     title: string;
     cta: string;
     noPostsFound: string;

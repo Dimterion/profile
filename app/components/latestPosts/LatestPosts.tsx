@@ -3,11 +3,18 @@ import { ArrowRightIcon } from "../icons";
 import { dateFormatter } from "~/utils";
 import CornerFrame from "../CornerFrame/CornerFrame";
 import { useContent } from "~/hooks/useContent";
+import type { PostsMeta } from "~/types";
 
-export default function LatestPosts({ limit = 3 }: { limit?: number }) {
+export default function LatestPosts({
+  posts,
+  limit = 3,
+}: {
+  posts: PostsMeta[];
+  limit?: number;
+}) {
   const { t } = useContent();
 
-  const sorted = [...t.posts.items].sort(
+  const sorted = [...posts].sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
   );
 

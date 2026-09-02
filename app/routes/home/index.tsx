@@ -1,51 +1,54 @@
 import type { Route } from "./+types/index";
 import Hero from "~/components/Hero/Hero";
 import FeaturedProjects from "~/components/FeaturedProjects/FeaturedProjects";
-import type { PostsMeta } from "~/types";
 import LatestPosts from "~/components/LatestPosts/LatestPosts";
 import SectionConnector from "~/components/SectionConnector/SectionConnector";
 import PageNav from "~/components/PageNav/PageNav";
 import SectionNav from "~/components/SectionNav/SectionNav";
 import ScrollToTopBottom from "~/components/ScrollToTopBottom/ScrollToTopBottom";
 import AboutPreview from "~/components/AboutPreview/AboutPreview";
+import { useContent } from "~/hooks/useContent";
+import { parsePostsFromGlob } from "~/lib/posts";
 import { en } from "~/data/content/en";
 import { fr } from "~/data/content/fr";
 
-function getCurrentLanguage() {
-  if (typeof window === "undefined") return "en";
-
-  const saved = localStorage.getItem("language");
-  if (saved === "fr") return "fr";
-  return "en";
-}
+const postFiles = import.meta.glob<string>("../../data/blog/posts/*.md", {
+  query: "?raw",
+  import: "default",
+  eager: true,
+});
 
 export function meta({}: Route.MetaArgs) {
-  const lang = getCurrentLanguage();
-  const content = lang === "fr" ? fr : en;
-
   return [
-    { title: content.meta.title },
-    { name: "description", content: content.meta.description },
+    { title: en.meta.title },
+    { name: "description", content: en.meta.description },
   ];
 }
 
-export function sortPostsLatestFirst(posts: PostsMeta[]) {
-  return [...posts].sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-  );
-}
-
 export async function loader() {
-  const lang = getCurrentLanguage();
-  const content = lang === "fr" ? fr : en;
+  const enPosts = parsePostsFromGlob(postFiles, "en");
+  const frPosts = parsePostsFromGlob(postFiles, "fr");
 
   return {
-    projects: content.projects.items,
-    posts: content.posts.items,
+    projects: {
+      en: en.projects.items,
+      fr: fr.projects.items,
+    },
+    posts: {
+      en: enPosts,
+      fr: frPosts,
+    },
   };
 }
 
-export default function HomePage() {
+export default function HomePage({ loaderData }: Route.ComponentProps) {
+  const { currentLang } = useContent();
+  const { projects, posts } = loaderData;
+
+  const lang = currentLang === "fr" ? "fr" : "en";
+  const postsForLang = posts[lang];
+  const projectsForLang = projects[lang];
+
   return (
     <>
       <SectionNav />
@@ -60,13 +63,13 @@ export default function HomePage() {
         <SectionConnector />
 
         <section id="work" className="w-full">
-          <FeaturedProjects count={2} />
+          <FeaturedProjects count={2} items={projectsForLang} />
         </section>
 
         <SectionConnector />
 
         <section id="blog" className="w-full">
-          <LatestPosts limit={4} />
+          <LatestPosts posts={postsForLang} limit={4} />
         </section>
 
         <SectionConnector />

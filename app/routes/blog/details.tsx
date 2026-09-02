@@ -1,10 +1,9 @@
 import ReactMarkdown from "react-markdown";
 import { data, Link } from "react-router";
 import type { Route } from "./+types/details";
-import { en } from "~/data/content/en";
-import { fr } from "~/data/content/fr";
 import { useContent } from "~/hooks/useContent";
-import type { BlogDetailsPageProps } from "~/types";
+import type { BlogDetailsPageProps, PostsMeta } from "~/types";
+import matter from "gray-matter";
 
 const postFiles = import.meta.glob<string>("../../data/blog/posts/*.md", {
   query: "?raw",
@@ -27,25 +26,31 @@ export function meta({ loaderData }: Route.MetaArgs) {
   ];
 }
 
-export async function loader({ params, context }: Route.LoaderArgs) {
-  const postEn = en.posts.items.find((item) => item.slug === params.slug);
-  const postFr = fr.posts.items.find((item) => item.slug === params.slug);
-
-  if (!postEn && !postFr) {
-    throw data("Post not found", { status: 404 });
-  }
-
-  const slug = (postEn ?? postFr)!.slug;
+export async function loader({ params }: Route.LoaderArgs) {
+  const slug = params.slug;
 
   const filePathEn = `../../data/blog/posts/${slug}.en.md`;
   const filePathFr = `../../data/blog/posts/${slug}.fr.md`;
 
-  const contentEn = postFiles[filePathEn];
-  const contentFr = postFiles[filePathFr];
+  const rawEn = postFiles[filePathEn] as string | undefined;
+  const rawFr = postFiles[filePathFr] as string | undefined;
 
-  if (!contentEn && !contentFr) {
-    throw data("Post content not found", { status: 404 });
+  if (!rawEn && !rawFr) {
+    throw data("Post not found", { status: 404 });
   }
+
+  const parsePost = (raw: string): PostsMeta => {
+    const { data, content } = matter(raw);
+    return {
+      ...(data as unknown as PostsMeta),
+    };
+  };
+
+  const postEn = rawEn ? parsePost(rawEn) : undefined;
+  const postFr = rawFr ? parsePost(rawFr) : undefined;
+
+  const contentEn = rawEn ? matter(rawEn).content : "";
+  const contentFr = rawFr ? matter(rawFr).content : "";
 
   return {
     postEn,

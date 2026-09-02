@@ -4,30 +4,58 @@ import { useContent } from "~/hooks/useContent";
 import PostCard from "~/components/PostCard/PostCard";
 import Pagination from "~/components/pagination/Pagination";
 import PostFilter from "~/components/postFilter/PostFilter";
+import matter from "gray-matter";
+import type { PostsMeta } from "~/types";
+
+export async function loader() {
+  const postFiles = import.meta.glob<string>("../../data/blog/posts/*.md", {
+    query: "?raw",
+    import: "default",
+    eager: true,
+  });
+
+  function parsePostsByLang(lang: "en" | "fr"): PostsMeta[] {
+    const posts: PostsMeta[] = [];
+
+    Object.entries(postFiles).forEach(([path, raw]) => {
+      if (!path.endsWith(`.${lang}.md`)) return;
+      const { data } = matter(raw as string);
+      posts.push(data as unknown as PostsMeta);
+    });
+
+    return posts;
+  }
+
+  const enPosts = parsePostsByLang("en");
+  const frPosts = parsePostsByLang("fr");
+
+  return {
+    enPosts,
+    frPosts,
+  };
+}
 
 export function meta({}: Route.MetaArgs) {
   return [
     { title: "Blog | Dimterion" },
-    {
-      name: "description",
-      content: "Dimterion's blog.",
-    },
+    { name: "description", content: "Dimterion's blog." },
   ];
 }
 
-export default function BlogPage() {
+export default function BlogPage({ loaderData }: Route.ComponentProps) {
   const { t, currentLang } = useContent();
+  const { enPosts, frPosts } = loaderData;
 
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-
   const postsPerPage = 10;
 
   const posts = useMemo(() => {
-    return [...t.posts.items].sort(
+    const base = currentLang === "fr" ? frPosts : enPosts;
+    return [...base].sort(
       (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
     );
-  }, [t.posts.items]);
+  }, [currentLang, enPosts, frPosts]);
 
   useEffect(() => {
     setCurrentPage(1);
@@ -35,7 +63,6 @@ export default function BlogPage() {
 
   const filteredPosts = posts.filter((post) => {
     const query = searchQuery.toLowerCase();
-
     return (
       post.title.toLowerCase().includes(query) ||
       post.description.toLowerCase().includes(query)
@@ -43,7 +70,6 @@ export default function BlogPage() {
   });
 
   const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
-
   const indexOfLast = currentPage * postsPerPage;
   const indexOfFirst = indexOfLast - postsPerPage;
   const currentPosts = filteredPosts.slice(indexOfFirst, indexOfLast);

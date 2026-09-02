@@ -2,8 +2,15 @@ import { Link } from "react-router";
 import ProjectCard from "../ProjectCard/ProjectCard";
 import CornerFrame from "../CornerFrame/CornerFrame";
 import { useContent } from "~/hooks/useContent";
+import type { Project } from "~/types";
 
-export default function FeaturedProjects({ count = 4 }: { count?: number }) {
+export default function FeaturedProjects({
+  count = 4,
+  items,
+}: {
+  count?: number;
+  items?: Project[];
+}) {
   const { t } = useContent();
 
   const featured = t.projects.items
