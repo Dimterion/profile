@@ -228,6 +228,7 @@ export const fr: ContentShape = {
     cta: "Tous les articles",
     noPostsFound: "Aucun article trouvé.",
     readMore: "Lire la suite",
+    backToBlog: "Retour aux articles",
     items: [
       {
         id: "post-01",

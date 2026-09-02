@@ -1,7 +1,9 @@
 import ReactMarkdown from "react-markdown";
 import { data, Link } from "react-router";
 import type { Route } from "./+types/details";
-import { postsMeta } from "~/data/blog/posts-meta";
+import { en } from "~/data/content/en";
+import { fr } from "~/data/content/fr";
+import { useContent } from "~/hooks/useContent";
 import type { BlogDetailsPageProps } from "~/types";
 
 const postFiles = import.meta.glob<string>("../../data/blog/posts/*.md", {
@@ -11,7 +13,8 @@ const postFiles = import.meta.glob<string>("../../data/blog/posts/*.md", {
 });
 
 export function meta({ loaderData }: Route.MetaArgs) {
-  const post = loaderData?.post;
+  const { postEn, postFr } = loaderData || {};
+  const post = postEn ?? postFr;
 
   return [
     {
@@ -25,13 +28,15 @@ export function meta({ loaderData }: Route.MetaArgs) {
 }
 
 export async function loader({ params }: Route.LoaderArgs) {
-  const post = postsMeta.en.find((item) => item.slug === params.slug);
+  const postEn = en.posts.items.find((item) => item.slug === params.slug);
+  const postFr = fr.posts.items.find((item) => item.slug === params.slug);
 
-  if (!post) {
+  if (!postEn && !postFr) {
     throw data("Post not found", { status: 404 });
   }
 
-  const filePath = `../../data/blog/posts/${post.slug}.md`;
+  const slug = (postEn ?? postFr)!.slug;
+  const filePath = `../../data/blog/posts/${slug}.md`;
   const content = postFiles[filePath];
 
   if (!content) {
@@ -39,31 +44,40 @@ export async function loader({ params }: Route.LoaderArgs) {
   }
 
   return {
-    post,
+    postEn,
+    postFr,
     content,
   };
 }
 
 export default function BlogDetailsPage({ loaderData }: BlogDetailsPageProps) {
-  const { post, content } = loaderData;
+  const { t, currentLang } = useContent();
+  const { postEn, postFr, content } = loaderData;
+
+  const post = currentLang === "fr" ? postFr : postEn;
+  const resolvedPost = post ?? postEn ?? postFr;
+
+  if (!resolvedPost) {
+    return <div>Post not found</div>;
+  }
 
   const formattedDate = new Intl.DateTimeFormat("en-GB", {
     day: "numeric",
     month: "long",
     year: "numeric",
-  }).format(new Date(post.date));
+  }).format(new Date(resolvedPost.date));
 
   return (
     <article className="prose mx-auto w-full max-w-96 p-2 text-white md:max-w-lg md:p-4 lg:max-w-2xl xl:max-w-full">
       <Link to="/blog" className="not-prose underline">
-        Back to blog
+        {t.posts.backToBlog}
       </Link>
 
       <header className="not-prose mb-8">
-        <p className="text-sm">{post.label}</p>
-        <h1 className="text-4xl font-bold">{post.title}</h1>
-        <p>{post.description}</p>
-        <time dateTime={post.date} className="mb-2 block text-sm">
+        <p className="text-sm">{resolvedPost.label}</p>
+        <h1 className="text-4xl font-bold">{resolvedPost.title}</h1>
+        <p>{resolvedPost.description}</p>
+        <time dateTime={resolvedPost.date} className="mb-2 block text-sm">
           {formattedDate}
         </time>
       </header>

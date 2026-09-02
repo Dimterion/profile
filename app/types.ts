@@ -170,5 +170,6 @@ export type ContentShape = {
     title: string;
     cta: string;
     noPostsFound: string;
+    backToBlog: string;
   };
 };
