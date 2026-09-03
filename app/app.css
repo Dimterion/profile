@@ -37,6 +37,12 @@
   --color-grey: #898989;
 }
 
+@layer utilities {
+  .cornerFrame {
+    @apply bg-blue flex min-h-screen w-full max-w-96 flex-col items-center justify-center gap-8 border px-2 py-4 md:max-w-lg md:p-10 lg:max-w-2xl xl:max-w-full;
+  }
+}
+
 * {
   scroll-behavior: smooth;
 }

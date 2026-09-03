@@ -6,7 +6,7 @@ export default function AboutPreview() {
   const { t } = useContent();
 
   return (
-    <CornerFrame className="bg-blue flex min-h-screen w-full max-w-96 flex-col items-center justify-center gap-8 border px-2 py-4 md:max-w-lg md:p-10 lg:max-w-2xl xl:max-w-full">
+    <CornerFrame className="cornerFrame">
       <h2 className="text-center text-lg font-bold uppercase md:text-xl">
         {t.about.title}
       </h2>
