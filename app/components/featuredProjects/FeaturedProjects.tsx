@@ -19,7 +19,7 @@ export default function FeaturedProjects({
 
   return (
     <CornerFrame className="cornerFrame">
-      <h2 className="text-center text-lg font-bold uppercase md:text-xl">
+      <h2 className="text-center font-bold sm:text-lg md:text-xl">
         {t.work.title}
       </h2>
 
@@ -30,7 +30,7 @@ export default function FeaturedProjects({
       </div>
 
       <Link
-        className="bg-dark-blue hover:text-gold hover:border-gold mx-auto w-fit border px-4 pt-0.5 pb-1 text-center text-sm uppercase transition"
+        className="bg-dark-blue hover:text-gold hover:border-gold mx-auto w-fit border px-4 pt-0.5 pb-1 text-center text-xs transition"
         to="/projects"
       >
         {t.work.cta}

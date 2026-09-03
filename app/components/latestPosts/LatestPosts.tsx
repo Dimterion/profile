@@ -22,7 +22,7 @@ export default function LatestPosts({
 
   return (
     <CornerFrame className="cornerFrame">
-      <h2 className="text-center text-lg font-bold uppercase md:text-xl">
+      <h2 className="text-center font-bold sm:text-lg md:text-xl">
         {t.blog.title}
       </h2>
 
@@ -33,12 +33,14 @@ export default function LatestPosts({
             key={post.id}
             className="bg-dark-blue hover:border-gold hover:text-gold block border p-4 transition"
           >
-            <h3 className="mb-1 font-semibold md:text-lg">{post.title}</h3>
+            <h3 className="mb-1 text-sm font-semibold md:text-lg">
+              {post.title}
+            </h3>
 
-            <p>{post.description}</p>
+            <p className="text-sm md:text-base">{post.description}</p>
 
             <div className="flex items-center justify-between">
-              <time dateTime={post.date} className="mt-1 text-sm">
+              <time dateTime={post.date} className="mt-1 text-xs">
                 {dateFormatter.format(new Date(post.date))}
               </time>
 
@@ -49,7 +51,7 @@ export default function LatestPosts({
       </div>
 
       <Link
-        className="bg-dark-blue hover:text-gold hover:border-gold mx-auto w-fit border px-4 pt-0.5 pb-1 text-center text-sm uppercase transition"
+        className="bg-dark-blue hover:text-gold hover:border-gold mx-auto w-fit border px-4 pt-0.5 pb-1 text-center text-xs transition"
         to="/blog"
       >
         {t.blog.cta}

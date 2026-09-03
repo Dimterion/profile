@@ -7,21 +7,21 @@ export default function AboutPreview() {
 
   return (
     <CornerFrame className="cornerFrame">
-      <h2 className="text-center text-lg font-bold uppercase md:text-xl">
+      <h2 className="text-center font-bold sm:text-lg md:text-xl">
         {t.about.title}
       </h2>
       <div className="grid gap-8 lg:grid-cols-2">
         <div className="bg-dark-blue border p-4">
-          <h3 className="mb-4 text-center text-lg font-bold md:text-xl">
+          <h3 className="mb-4 text-center text-sm font-bold md:text-lg">
             {t.about.overviewTitle}
           </h3>
-          <p>{t.about.overviewText}</p>
+          <p className="text-sm md:text-base">{t.about.overviewText}</p>
         </div>
         <div className="bg-dark-blue border p-4">
-          <h3 className="mb-4 text-center text-lg font-bold md:text-xl">
+          <h3 className="mb-4 text-center text-sm font-bold md:text-lg">
             {t.about.highlightsTitle}
           </h3>
-          <ul className="mb-4 list-none space-y-2">
+          <ul className="mb-4 list-none space-y-2 text-sm md:text-base">
             {t.about.highlights.map((highlight, index) => (
               <li
                 key={index}
@@ -34,7 +34,7 @@ export default function AboutPreview() {
         </div>
       </div>
       <Link
-        className="bg-dark-blue hover:text-gold hover:border-gold mx-auto w-fit border px-4 pt-0.5 pb-1 text-center text-sm uppercase transition"
+        className="bg-dark-blue hover:text-gold hover:border-gold mx-auto w-fit border px-4 pt-0.5 pb-1 text-center text-xs transition"
         to="/about"
       >
         {t.about.cta}
