@@ -6,6 +6,7 @@ import type { Route } from "./+types/details";
 import type { BlogDetailsPageProps, PostsMeta } from "~/types";
 
 import { useContent } from "~/hooks/useContent";
+import { ArrowLeftIcon } from "~/components/icons";
 
 const postFiles = import.meta.glob<string>("../../data/blog/posts/*.md", {
   query: "?raw",
@@ -90,23 +91,28 @@ export default function BlogDetailsPage({ loaderData }: BlogDetailsPageProps) {
   }).format(new Date(resolvedPost.date));
 
   return (
-    <article className="prose mx-auto w-full max-w-96 p-2 text-white md:max-w-lg md:p-4 lg:max-w-2xl xl:max-w-full">
-      <Link to="/blog" className="not-prose underline">
-        {t.posts.backToBlog ?? "Back to blog"}
+    <section className="w-full max-w-96 space-y-4 md:max-w-lg md:p-4 lg:max-w-2xl xl:max-w-full">
+      <Link
+        to="/blog"
+        className="md:text-md flex w-fit items-center gap-2 border p-2 text-sm"
+      >
+        <ArrowLeftIcon /> {t.posts.backToBlog ?? "Back to blog"}
       </Link>
 
-      <header className="not-prose mb-8">
-        <p className="text-sm">{resolvedPost.label}</p>
-        <h1 className="text-4xl font-bold">{resolvedPost.title}</h1>
-        <p>{resolvedPost.description}</p>
-        <time dateTime={resolvedPost.date} className="mb-2 block text-sm">
-          {formattedDate}
-        </time>
-      </header>
+      <article className="bg-blue grid items-start gap-8 border p-2">
+        <header className="not-prose mb-8 space-y-2">
+          <p className="text-sm">{resolvedPost.label}</p>
+          <h1 className="text-4xl font-bold">{resolvedPost.title}</h1>
+          <p>{resolvedPost.description}</p>
+          <time dateTime={resolvedPost.date} className="mb-2 block text-sm">
+            {formattedDate}
+          </time>
+        </header>
 
-      <div className="prose mb-12 max-w-none">
-        <ReactMarkdown>{resolvedContent}</ReactMarkdown>
-      </div>
-    </article>
+        <div className="prose mb-12 max-w-none">
+          <ReactMarkdown>{resolvedContent}</ReactMarkdown>
+        </div>
+      </article>
+    </section>
   );
 }
