@@ -1,9 +1,11 @@
-import ReactMarkdown from "react-markdown";
 import { data, Link } from "react-router";
-import type { Route } from "./+types/details";
-import { useContent } from "~/hooks/useContent";
-import type { BlogDetailsPageProps, PostsMeta } from "~/types";
+import ReactMarkdown from "react-markdown";
 import matter from "gray-matter";
+
+import type { Route } from "./+types/details";
+import type { BlogDetailsPageProps, PostsMeta } from "~/types";
+
+import { useContent } from "~/hooks/useContent";
 
 const postFiles = import.meta.glob<string>("../../data/blog/posts/*.md", {
   query: "?raw",
@@ -71,7 +73,14 @@ export default function BlogDetailsPage({ loaderData }: BlogDetailsPageProps) {
   const resolvedContent = content ?? contentEn ?? contentFr;
 
   if (!resolvedPost || !resolvedContent) {
-    return <div>Post not found</div>;
+    return (
+      <div className="space-y-2 text-center">
+        <div className="text-lg">Post not found.</div>
+        <Link to="/blog" className="underline">
+          Back to blog
+        </Link>
+      </div>
+    );
   }
 
   const formattedDate = new Intl.DateTimeFormat("en-GB", {

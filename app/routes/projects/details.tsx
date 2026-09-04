@@ -1,9 +1,13 @@
-import type { Route } from "./+types/details";
 import { data, Link } from "react-router";
+
+import type { Route } from "./+types/details";
+
+import { useContent } from "~/hooks/useContent";
+
 import { en } from "~/data/content/en";
 import { fr } from "~/data/content/fr";
+
 import { ArrowLeftIcon } from "~/components/icons/icons";
-import { useContent } from "~/hooks/useContent";
 
 export function meta({ loaderData }: Route.MetaArgs) {
   const { projectEn, projectFr } = loaderData || {};
@@ -59,7 +63,14 @@ export default function ProjectDetailsPage({
   const resolvedProject = project ?? projectEn ?? projectFr;
 
   if (!resolvedProject) {
-    return <div>Project not found</div>;
+    return (
+      <div className="space-y-2 text-center">
+        <div className="text-lg">Project not found.</div>
+        <Link to="/projects" className="underline">
+          Back to all projects
+        </Link>
+      </div>
+    );
   }
 
   return (

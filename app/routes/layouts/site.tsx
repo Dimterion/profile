@@ -16,7 +16,7 @@ export default function SiteLayout({
       <Header showPortrait={showPortrait} />
 
       <main
-        className={`mx-auto flex w-full max-w-5xl flex-col items-center gap-4 px-10 ${
+        className={`mx-auto flex min-h-screen w-full max-w-5xl flex-col items-center justify-center gap-4 px-10 ${
           noTopBottomPadding ? "py-0" : "py-10 md:px-4 md:py-20"
         }`}
       >
