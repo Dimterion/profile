@@ -99,8 +99,8 @@ export default function BlogDetailsPage({ loaderData }: BlogDetailsPageProps) {
         <ArrowLeftIcon /> {t.posts.backToBlog ?? "Back to blog"}
       </Link>
 
-      <article className="bg-blue grid items-start gap-8 border p-2">
-        <header className="not-prose mb-8 space-y-2">
+      <article className="bg-blue grid items-start gap-2 border p-2">
+        <header className="not-prose mb-8 space-y-2 border-b">
           <p className="text-sm">{resolvedPost.label}</p>
           <h1 className="text-4xl font-bold">{resolvedPost.title}</h1>
           <p>{resolvedPost.description}</p>
@@ -109,7 +109,7 @@ export default function BlogDetailsPage({ loaderData }: BlogDetailsPageProps) {
           </time>
         </header>
 
-        <div className="prose mb-12 max-w-none">
+        <div className="prose prose-invert mb-12 max-w-none">
           <ReactMarkdown>{resolvedContent}</ReactMarkdown>
         </div>
       </article>

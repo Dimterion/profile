@@ -12,7 +12,7 @@ export default function Pagination({
       {Array.from({ length: totalPages }, (_, idx) => (
         <button
           key={idx + 1}
-          className={`m-4 cursor-pointer px-3 py-1 text-white ${currentPage === idx + 1 ? "bg-gray-600" : "bg-gray-400"}`}
+          className={`m-4 cursor-pointer px-3 pt-1 pb-1.5 text-white ${currentPage === idx + 1 ? "bg-dark-blue" : "bg-grey"}`}
           onClick={() => onPageChange(idx + 1)}
         >
           {idx + 1}

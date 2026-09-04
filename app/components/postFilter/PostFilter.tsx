@@ -11,7 +11,7 @@ export default function PostFilter({
         value={searchQuery}
         onChange={(e) => onSearchChange(e.target.value)}
         placeholder="Search..."
-        className="bg-grey w-full border px-4 py-2 focus:ring-2 focus:outline-none"
+        className="bg-dark-blue w-full border px-4 py-2 focus:ring-2 focus:outline-none"
       />
     </div>
   );
