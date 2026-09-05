@@ -6,6 +6,7 @@ import Pagination from "~/components/Pagination/Pagination";
 import PostFilter from "~/components/PostFilter/PostFilter";
 import matter from "gray-matter";
 import type { PostsMeta } from "~/types";
+import ScrollToTopBottom from "~/components/ScrollToTopBottom/ScrollToTopBottom";
 
 export async function loader() {
   const postFiles = import.meta.glob<string>("../../data/blog/posts/*.md", {
@@ -93,6 +94,7 @@ export default function BlogPage({ loaderData }: Route.ComponentProps) {
           currentPosts.map((post) => <PostCard key={post.id} post={post} />)
         )}
       </div>
+      <ScrollToTopBottom gap="h-0" />
 
       {totalPages > 1 && (
         <Pagination

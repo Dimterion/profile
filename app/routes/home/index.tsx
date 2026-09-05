@@ -52,7 +52,7 @@ export default function HomePage({ loaderData }: Route.ComponentProps) {
   return (
     <>
       <SectionNav />
-      <ScrollToTopBottom />
+      <ScrollToTopBottom gap="h-[calc(4*1.25rem+3*0.25rem)]" />
       <PageNav />
 
       <div className="flex flex-col items-center">

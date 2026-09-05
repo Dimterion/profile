@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { ChevronUpIcon, ChevronDownIcon } from "~/components/icons";
 
-export default function ScrollToTopBottom() {
+export default function ScrollToTopBottom({ gap }: { gap: string }) {
   const [atTop, setAtTop] = useState(true);
   const [atBottom, setAtBottom] = useState(false);
 
@@ -71,7 +71,7 @@ export default function ScrollToTopBottom() {
           <ChevronUpIcon className="h-5 w-5" />
         </button>
 
-        <div className="h-[calc(4*1.25rem+3*0.25rem)]" />
+        <div className={gap} />
 
         <button
           type="button"
