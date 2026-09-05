@@ -2,8 +2,8 @@ import { useEffect, useMemo, useState } from "react";
 import type { Route } from "./+types";
 import { useContent } from "~/hooks/useContent";
 import PostCard from "~/components/PostCard/PostCard";
-import Pagination from "~/components/pagination/Pagination";
-import PostFilter from "~/components/postFilter/PostFilter";
+import Pagination from "~/components/Pagination/Pagination";
+import PostFilter from "~/components/PostFilter/PostFilter";
 import matter from "gray-matter";
 import type { PostsMeta } from "~/types";
 

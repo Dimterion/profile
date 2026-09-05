@@ -14,6 +14,7 @@ export default function Header({ showPortrait = false }: HeaderProps) {
       <NavLink
         to="/"
         end
+        aria-label="Home page"
         className={({ isActive }) =>
           `bg-blue hover:border-gold hover:text-gold mr-1 ml-1.5 inline-flex h-5 w-5 rotate-45 items-center justify-center border md:mr-0 md:ml-0 md:h-7 md:w-7 ${
             !showPortrait ? "mt-1 md:ml-1" : ""
