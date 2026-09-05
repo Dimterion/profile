@@ -13,7 +13,13 @@ export default function DiamondImg({ link, alt, style }: DiamondImgProps) {
       <div className="absolute inset-0 bg-current" style={diamondClip} />
 
       <div className="absolute inset-px overflow-hidden" style={diamondClip}>
-        <img src={link} alt={alt} className="h-full w-full object-cover" />
+        <img
+          src={link}
+          alt={alt}
+          width="78"
+          height="78"
+          className="h-full w-full object-cover"
+        />
       </div>
     </div>
   );
