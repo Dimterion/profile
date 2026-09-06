@@ -47,6 +47,20 @@
   scroll-behavior: smooth;
 }
 
+html:has(#hero) {
+  scroll-snap-type: y proximity;
+  scroll-behavior: smooth;
+}
+
+html:has(#hero) #hero,
+html:has(#hero) #work,
+html:has(#hero) #blog,
+html:has(#hero) #about {
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+  min-height: 100vh;
+}
+
 body {
   background-color: var(--color-black);
   color: var(--color-white);
