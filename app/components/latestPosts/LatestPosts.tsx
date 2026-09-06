@@ -51,7 +51,7 @@ export default function LatestPosts({
       </div>
 
       <Link
-        className="bg-dark-blue hover:text-gold hover:border-gold mx-auto w-fit border px-4 pt-0.5 pb-1 text-center text-xs transition"
+        className="bg-dark-blue hover:border-gold hover:text-gold w-fit min-w-0 border px-4 py-2 text-xs transition md:text-sm"
         to="/blog"
       >
         {t.blog.cta}

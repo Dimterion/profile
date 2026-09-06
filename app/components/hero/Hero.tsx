@@ -35,7 +35,7 @@ export default function Hero() {
           <Link
             key={link.label}
             to={link.link}
-            className="bg-dark-blue hover:border-gold hover:text-gold w-full min-w-0 border px-4 py-2 text-xs transition"
+            className="bg-dark-blue hover:border-gold hover:text-gold w-full min-w-0 border px-4 py-2 text-xs transition md:text-sm"
           >
             {link.label}
           </Link>
