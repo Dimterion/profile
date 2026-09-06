@@ -17,8 +17,8 @@ export function HouseIcon({
       className={className}
       aria-hidden="true"
     >
-      <path d="M3 10.5 12 3l9 7.5" />
-      <path d="M5 9.5V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.5" />
+      <path d="M4 11 12 4l8 7" />
+      <path d="M6 10v9h4v-5h4v5h4v-9" />
     </svg>
   );
 }
@@ -162,8 +162,7 @@ export function ArrowUpIcon({
       className={className}
       aria-hidden="true"
     >
-      <path d="M12 19V5" />
-      <path d="m5 12 7-7 7 7" />
+      <path d="m18 15-6-6-6 6" />
     </svg>
   );
 }
@@ -183,8 +182,7 @@ export function ArrowDownIcon({
       className={className}
       aria-hidden="true"
     >
-      <path d="M12 5v14" />
-      <path d="m5 12 7 7 7-7" />
+      <path d="m6 9 6 6 6-6" />
     </svg>
   );
 }

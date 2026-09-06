@@ -69,7 +69,7 @@ export default function SectionNav() {
   return (
     <nav
       aria-label="Section navigation"
-      className="fixed top-1/2 left-2 z-40 -translate-y-1/2"
+      className="fixed top-1/2 left-0.5 z-40 -translate-y-1/2 md:left-2"
     >
       <div className="flex flex-col gap-4">
         <button
@@ -83,7 +83,7 @@ export default function SectionNav() {
               : "hover:text-gold text-white"
           }`}
         >
-          <ArrowUpIcon className="h-5 w-5 md:h-10 md:w-10" />
+          <ArrowUpIcon className="h-8 w-8 md:h-10 md:w-10" />
         </button>
         <button
           type="button"
@@ -96,7 +96,7 @@ export default function SectionNav() {
               : "hover:text-gold text-white"
           }`}
         >
-          <ArrowDownIcon className="h-5 w-5 md:h-10 md:w-10" />
+          <ArrowDownIcon className="h-8 w-8 md:h-10 md:w-10" />
         </button>
       </div>
     </nav>
