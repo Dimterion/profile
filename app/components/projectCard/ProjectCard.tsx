@@ -27,7 +27,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         <p className="min-w-0 flex-1 text-sm md:p-2 md:text-base">
           {project.description}
         </p>
-        <ArrowRightIcon className="mr-1 h-3 w-3 shrink-0 md:mr-2 md:h-5 md:w-5" />
+        <ArrowRightIcon className="mr-1 h-3 w-3 shrink-0 transition-transform duration-300 group-hover:translate-x-1 md:mr-2 md:h-5 md:w-5" />
       </div>
     </Link>
   );

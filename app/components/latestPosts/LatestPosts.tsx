@@ -31,7 +31,7 @@ export default function LatestPosts({
           <Link
             to={`/blog/${post.slug}`}
             key={post.id}
-            className="bg-dark-blue hover:border-gold hover:text-gold block border p-4 transition"
+            className="group bg-dark-blue hover:border-gold hover:text-gold block border p-4 transition"
           >
             <h3 className="mb-1 text-sm font-semibold md:text-lg">
               {post.title}
@@ -44,7 +44,7 @@ export default function LatestPosts({
                 {dateFormatter.format(new Date(post.date))}
               </time>
 
-              <ArrowRightIcon className="h-4 w-4" />
+              <ArrowRightIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </div>
           </Link>
         ))}
