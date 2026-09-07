@@ -18,7 +18,7 @@ export default function FeaturedProjects({
     .slice(0, count);
 
   return (
-    <CornerFrame className="cornerFrame">
+    <CornerFrame className="cornerFrame gradient-bg">
       <h2 className="text-center font-bold sm:text-lg md:text-xl">
         {t.work.title}
       </h2>

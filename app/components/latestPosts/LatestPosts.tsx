@@ -21,7 +21,7 @@ export default function LatestPosts({
   const latest = sorted.slice(0, limit);
 
   return (
-    <CornerFrame className="cornerFrame">
+    <CornerFrame className="cornerFrame gradient-bg">
       <h2 className="text-center font-bold sm:text-lg md:text-xl">
         {t.blog.title}
       </h2>

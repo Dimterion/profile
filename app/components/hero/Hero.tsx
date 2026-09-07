@@ -25,7 +25,7 @@ export default function Hero() {
   ];
 
   return (
-    <CornerFrame className="cornerFrame">
+    <CornerFrame className="cornerFrame  gradient-bg">
       <h1 className="mb-7 text-center font-bold sm:text-lg md:text-2xl">
         {t.hero.name}
       </h1>
@@ -35,7 +35,7 @@ export default function Hero() {
           <Link
             key={link.label}
             to={link.link}
-            className="bg-dark-blue hover:border-gold hover:text-gold w-full min-w-0 border px-4 py-2 text-xs transition md:text-sm"
+            className="bg-dark-blue hover:border-gold hover:text-gold w-full min-w-0 border px-4 py-2 text-xs transition hover:scale-95 md:text-sm"
           >
             {link.label}
           </Link>

@@ -6,7 +6,7 @@ export default function AboutPreview() {
   const { t } = useContent();
 
   return (
-    <CornerFrame className="cornerFrame">
+    <CornerFrame className="cornerFrame gradient-bg">
       <h2 className="text-center font-bold sm:text-lg md:text-xl">
         {t.about.title}
       </h2>
