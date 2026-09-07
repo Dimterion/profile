@@ -11,7 +11,7 @@ import {
 
 import type { Route } from "./+types/root";
 import "./app.css";
-import { ArrowLeftIcon } from "./components/icons";
+import { ArrowLeftIcon } from "./components/shared/icons";
 import { LanguageProvider } from "~/context/LanguageContext";
 
 export const links: Route.LinksFunction = () => [

@@ -1,5 +1,5 @@
 import { data, Link, useNavigate } from "react-router";
-import { ArrowLeftIcon } from "~/components/icons";
+import { ArrowLeftIcon } from "~/components/shared/icons";
 import type { Route } from "../contact/+types";
 
 export function loader() {

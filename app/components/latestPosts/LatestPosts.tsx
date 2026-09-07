@@ -1,7 +1,7 @@
 import { Link } from "react-router";
-import { ArrowRightIcon } from "../icons";
+import { ArrowRightIcon } from "../shared/icons";
 import { dateFormatter } from "~/utils";
-import CornerFrame from "../CornerFrame/CornerFrame";
+import CornerFrame from "../shared/CornerFrame/CornerFrame";
 import { useContent } from "~/hooks/useContent";
 import type { PostsMeta } from "~/types";
 

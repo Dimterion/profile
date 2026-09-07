@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ArrowUpIcon, ArrowDownIcon } from "~/components/icons";
+import { ArrowUpIcon, ArrowDownIcon } from "~/components/shared/icons";
 
 const sections = [
   { id: "hero", label: "Hero" },

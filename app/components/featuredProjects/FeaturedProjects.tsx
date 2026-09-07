@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import ProjectCard from "../ProjectCard/ProjectCard";
-import CornerFrame from "../CornerFrame/CornerFrame";
+import CornerFrame from "../shared/CornerFrame/CornerFrame";
 import { useContent } from "~/hooks/useContent";
 import type { Project } from "~/types";
 

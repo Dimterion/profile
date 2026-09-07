@@ -6,7 +6,7 @@ import type { Route } from "./+types/details";
 import type { BlogDetailsPageProps, PostsMeta } from "~/types";
 
 import { useContent } from "~/hooks/useContent";
-import { ArrowLeftIcon } from "~/components/icons";
+import { ArrowLeftIcon } from "~/components/shared/icons";
 
 const postFiles = import.meta.glob<string>("../../data/blog/posts/*.md", {
   query: "?raw",

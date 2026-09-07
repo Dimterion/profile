@@ -7,7 +7,7 @@ import { useContent } from "~/hooks/useContent";
 import { en } from "~/data/content/en";
 import { fr } from "~/data/content/fr";
 
-import { ArrowLeftIcon } from "~/components/icons/icons";
+import { ArrowLeftIcon } from "~/components/shared/icons/icons";
 
 export function meta({ loaderData }: Route.MetaArgs) {
   const { projectEn, projectFr } = loaderData || {};

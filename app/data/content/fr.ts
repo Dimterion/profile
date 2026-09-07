@@ -1,4 +1,4 @@
-import type { ContentShape, PostsMeta } from "~/types";
+import type { ContentShape } from "~/types";
 
 import ispMainImg from "~/assets/images/isp_main_img.png";
 import personalSiteMainImg from "~/assets/images/personal_site_main_img.png";

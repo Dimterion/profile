@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import CornerFrame from "../CornerFrame/CornerFrame";
+import CornerFrame from "../shared/CornerFrame/CornerFrame";
 import { useContent } from "~/hooks/useContent";
 
 export default function AboutPreview() {

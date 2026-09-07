@@ -1,5 +1,5 @@
 import { NavLink } from "react-router";
-import { HouseIcon } from "../icons";
+import { HouseIcon } from "../shared/icons";
 import type { HeaderProps } from "~/types";
 import DiamondImg from "../DiamondImg/DiamondImg";
 import profileImg from "../../assets/images/profile_img.png";

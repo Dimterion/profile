@@ -1,6 +1,6 @@
 import { Link } from "react-router";
-import CornerFrame from "../CornerFrame/CornerFrame";
 import { useContent } from "~/hooks/useContent";
+import CornerFrame from "../shared/CornerFrame/CornerFrame";
 
 export default function Hero() {
   const { t } = useContent();
