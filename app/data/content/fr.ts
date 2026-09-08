@@ -128,6 +128,7 @@ export const fr: ContentShape = {
         id: "project-03",
         slug: "dimterions-stories",
         buttonLabel: "3",
+        featured: true,
         label: "Histoires",
         title: "Les histoires de Dimterion",
         description:
@@ -152,6 +153,7 @@ export const fr: ContentShape = {
         id: "project-04",
         slug: "medium-blog",
         buttonLabel: "4",
+        featured: true,
         label: "Rédaction technique",
         title: "Blog Medium",
         description:

@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import ProjectCard from "../ProjectCard/ProjectCard";
+import ProjectCard from "../shared/ProjectCard/ProjectCard";
 import CornerFrame from "../shared/CornerFrame/CornerFrame";
 import { useContent } from "~/hooks/useContent";
 import type { Project } from "~/types";
@@ -30,7 +30,7 @@ export default function FeaturedProjects({
       </div>
 
       <Link
-        className="bg-dark-blue hover:border-gold hover:text-gold w-fit min-w-0 border px-4 py-2 text-xs transition md:text-sm"
+        className="bg-dark-blue hover:border-gold hover:text-gold w-fit min-w-0 border px-4 py-2 text-xs transition hover:scale-95 md:text-sm"
         to="/projects"
       >
         {t.work.cta}

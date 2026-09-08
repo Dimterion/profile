@@ -63,7 +63,7 @@ export default function HomePage({ loaderData }: Route.ComponentProps) {
         <SectionConnector />
 
         <section id="work" className="w-full">
-          <FeaturedProjects count={2} items={projectsForLang} />
+          <FeaturedProjects items={projectsForLang} />
         </section>
 
         <SectionConnector />

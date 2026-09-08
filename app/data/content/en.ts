@@ -150,6 +150,7 @@ export const en: ContentShape = {
         id: "project-04",
         slug: "medium-blog",
         buttonLabel: "4",
+        featured: true,
         label: "Tech Writing",
         title: "Medium Blog",
         description: "200+ posts published weekly on Medium over 4+ years.",

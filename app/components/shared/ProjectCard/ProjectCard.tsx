@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import type { Project } from "~/types";
 import { useContent } from "~/hooks/useContent";
-import { ArrowRightIcon } from "../shared/icons";
+import { ArrowRightIcon } from "~/components/shared/icons";
 
 export default function ProjectCard({ project }: { project: Project }) {
   const { t } = useContent();
