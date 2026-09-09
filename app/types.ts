@@ -35,6 +35,8 @@ export type Project = {
 
 export type Position = "top" | "right" | "bottom" | "left";
 
+export type Language = "en" | "fr";
+
 export type DiamondNavLinkProps = {
   to: string;
   position?: Position;

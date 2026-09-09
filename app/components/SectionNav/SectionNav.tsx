@@ -69,7 +69,7 @@ export default function SectionNav() {
   return (
     <nav
       aria-label="Section navigation"
-      className="fixed top-1/2 left-0.5 z-40 -translate-y-1/2 md:left-2"
+      className="fixed top-1/2 left-1 z-40 -translate-y-1/2 md:left-2"
     >
       <div className="flex flex-col gap-4">
         <button

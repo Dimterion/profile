@@ -1,7 +1,6 @@
 import { useState } from "react";
+import type { Language } from "~/types";
 import { useLanguage } from "~/context/LanguageContext";
-
-type Language = "en" | "fr";
 
 export default function LanguageToggle() {
   const { currentLang, setLanguage, availableLanguages } = useLanguage();
@@ -26,7 +25,7 @@ export default function LanguageToggle() {
 
   return (
     <div
-      className="fixed top-0 right-0 z-50 mt-1 mr-2.5 md:top-1"
+      className="fixed top-0 right-0 z-50 mr-2.5 md:top-1 md:mt-1"
       onBlur={handleBlur}
       tabIndex={0}
     >
