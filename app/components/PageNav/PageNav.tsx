@@ -47,7 +47,7 @@ export default function PageNav() {
   return (
     <nav
       aria-label="Page sections"
-      className="fixed top-1/2 right-4 z-40 -translate-y-1/2"
+      className="pageNav fixed top-1/2 right-4 z-40 -translate-y-1/2"
     >
       <div className="flex flex-col gap-1">
         {sections.map((section) => (

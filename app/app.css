@@ -186,3 +186,10 @@ body {
     transform: none !important;
   }
 }
+
+@media (max-height: 600px) {
+  .pageNav,
+  .scrollToTopBottom {
+    display: none;
+  }
+}

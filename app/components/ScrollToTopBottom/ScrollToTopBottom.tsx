@@ -54,7 +54,7 @@ export default function ScrollToTopBottom({ gap }: { gap: string }) {
   return (
     <nav
       aria-label="Scroll to top and bottom"
-      className="fixed top-1/2 right-2.5 z-40 -translate-y-1/2"
+      className="scrollToTopBottom fixed top-1/2 right-2.5 z-40 -translate-y-1/2"
     >
       <div className="flex flex-col items-center gap-4">
         <button
