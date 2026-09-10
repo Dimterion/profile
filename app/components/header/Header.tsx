@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router";
 import type { HeaderProps } from "~/types";
 import { HouseIcon, ChevronUpIcon } from "../shared/icons";
-import DiamondImg from "../DiamondImg/DiamondImg";
+import DiamondImg from "../shared/DiamondImg/DiamondImg";
 import profileImg from "~/assets/images/profile_img.png";
 
 export default function Header({ showPortrait = false }: HeaderProps) {

@@ -1,4 +1,4 @@
-import DiamondImg from "~/components/DiamondImg/DiamondImg";
+import DiamondImg from "~/components/shared/DiamondImg/DiamondImg";
 import profileImg from "../../assets/images/profile_img.png";
 import { useContent } from "~/hooks/useContent";
 

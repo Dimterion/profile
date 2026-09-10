@@ -2,7 +2,7 @@ import type { Route } from "./+types/index";
 import Hero from "~/components/Hero/Hero";
 import FeaturedProjects from "~/components/FeaturedProjects/FeaturedProjects";
 import LatestPosts from "~/components/LatestPosts/LatestPosts";
-import SectionConnector from "~/components/SectionConnector/SectionConnector";
+import SectionConnector from "~/components/shared/SectionConnector/SectionConnector";
 import PageNav from "~/components/PageNav/PageNav";
 import SectionNav from "~/components/SectionNav/SectionNav";
 import ScrollToTopBottom from "~/components/ScrollToTopBottom/ScrollToTopBottom";

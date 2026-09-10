@@ -4,7 +4,8 @@ import { en } from "~/data/content/en";
 import { fr } from "~/data/content/fr";
 import { useContent } from "~/hooks/useContent";
 import ProjectCard from "~/components/shared/ProjectCard/ProjectCard";
-import Pagination from "~/components/Pagination/Pagination";
+import Pagination from "~/components/shared/Pagination/Pagination";
+import ScrollToTopBottom from "~/components/ScrollToTopBottom/ScrollToTopBottom";
 
 function getCurrentLanguage() {
   if (typeof window === "undefined") return "en";
@@ -86,6 +87,8 @@ export default function ProjectsPage() {
           <ProjectCard key={project.id} project={project} />
         ))}
       </section>
+      <ScrollToTopBottom gap="h-0" />
+
       {totalPages > 1 && (
         <Pagination
           totalPages={totalPages}
