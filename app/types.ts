@@ -14,6 +14,11 @@ export type HeaderProps = {
   showPortrait?: boolean;
 };
 
+export type PageLinkBtnProps = {
+  link: string;
+  label: string;
+};
+
 export type Project = {
   id: string;
   slug: string;
