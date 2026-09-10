@@ -20,13 +20,11 @@ export default function ProjectCard({ project }: { project: Project }) {
           className="w-full object-cover transition-transform duration-300 group-hover:scale-105"
         />
       </div>
-      <h3 className="p-2 text-center text-sm font-semibold md:text-lg">
+      <h3 className="p-2 text-center text-sm font-semibold md:text-base">
         {project.title}
       </h3>
       <div className="flex flex-1 items-center">
-        <p className="min-w-0 flex-1 text-sm md:p-2 md:text-base">
-          {project.description}
-        </p>
+        <p className="min-w-0 flex-1 text-sm md:p-2">{project.description}</p>
         <ArrowRightIcon className="mr-1 h-3 w-3 shrink-0 transition-transform duration-300 group-hover:translate-x-1 md:mr-2 md:h-5 md:w-5" />
       </div>
     </Link>
