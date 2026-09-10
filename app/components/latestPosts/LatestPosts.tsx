@@ -3,6 +3,7 @@ import type { PostsMeta } from "~/types";
 import { useContent } from "~/hooks/useContent";
 import CornerFrame from "../shared/CornerFrame/CornerFrame";
 import PostCard from "../shared/PostCard/PostCard";
+import PageLinkBtn from "../shared/PageLinkBtn/PageLinkBtn";
 
 export default function LatestPosts({
   posts,
@@ -27,12 +28,7 @@ export default function LatestPosts({
       {latest.map((post) => (
         <PostCard key={post.id} post={post} />
       ))}
-      <Link
-        className="bg-dark-blue hover:border-gold hover:text-gold w-fit min-w-0 border px-4 py-2 text-xs transition hover:scale-95 md:text-sm"
-        to="/blog"
-      >
-        {t.blog.cta}
-      </Link>
+      <PageLinkBtn link="/blog" label={t.blog.cta} />
     </CornerFrame>
   );
 }

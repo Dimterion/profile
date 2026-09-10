@@ -3,6 +3,7 @@ import ProjectCard from "../shared/ProjectCard/ProjectCard";
 import CornerFrame from "../shared/CornerFrame/CornerFrame";
 import { useContent } from "~/hooks/useContent";
 import type { Project } from "~/types";
+import PageLinkBtn from "../shared/PageLinkBtn/PageLinkBtn";
 
 export default function FeaturedProjects({
   count = 4,
@@ -29,12 +30,7 @@ export default function FeaturedProjects({
         ))}
       </div>
 
-      <Link
-        className="bg-dark-blue hover:border-gold hover:text-gold w-fit min-w-0 border px-4 py-2 text-xs transition hover:scale-95 md:text-sm"
-        to="/projects"
-      >
-        {t.work.cta}
-      </Link>
+      <PageLinkBtn link="/projects" label={t.work.cta} />
     </CornerFrame>
   );
 }
