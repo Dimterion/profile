@@ -1,13 +1,11 @@
-import { Link } from "react-router";
-import ProjectCard from "../shared/ProjectCard/ProjectCard";
-import CornerFrame from "../shared/CornerFrame/CornerFrame";
-import { useContent } from "~/hooks/useContent";
 import type { Project } from "~/types";
+import { useContent } from "~/hooks/useContent";
+import CornerFrame from "../shared/CornerFrame/CornerFrame";
+import ProjectCard from "../shared/ProjectCard/ProjectCard";
 import PageLinkBtn from "../shared/PageLinkBtn/PageLinkBtn";
 
 export default function FeaturedProjects({
   count = 4,
-  items,
 }: {
   count?: number;
   items?: Project[];

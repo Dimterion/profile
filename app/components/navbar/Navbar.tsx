@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
-import DiamondNavLink from "../DiamondNavLink/DiamondNavLink";
+import DiamondNavLink from "../shared/DiamondNavLink/DiamondNavLink";
 import {
   HammerIcon,
   ScrollIcon,

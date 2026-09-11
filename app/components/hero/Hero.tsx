@@ -1,4 +1,3 @@
-import { Link } from "react-router";
 import { useContent } from "~/hooks/useContent";
 import CornerFrame from "../shared/CornerFrame/CornerFrame";
 import PageLinkBtn from "../shared/PageLinkBtn/PageLinkBtn";

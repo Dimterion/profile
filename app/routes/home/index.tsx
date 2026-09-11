@@ -43,11 +43,10 @@ export async function loader() {
 
 export default function HomePage({ loaderData }: Route.ComponentProps) {
   const { currentLang } = useContent();
-  const { projects, posts } = loaderData;
+  const { posts } = loaderData;
 
   const lang = currentLang === "fr" ? "fr" : "en";
   const postsForLang = posts[lang];
-  const projectsForLang = projects[lang];
 
   return (
     <>
@@ -63,7 +62,7 @@ export default function HomePage({ loaderData }: Route.ComponentProps) {
         <SectionConnector />
 
         <section id="work" className="w-full">
-          <FeaturedProjects items={projectsForLang} />
+          <FeaturedProjects />
         </section>
 
         <SectionConnector />

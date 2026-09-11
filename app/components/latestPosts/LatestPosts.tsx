@@ -1,4 +1,3 @@
-import { Link } from "react-router";
 import type { PostsMeta } from "~/types";
 import { useContent } from "~/hooks/useContent";
 import CornerFrame from "../shared/CornerFrame/CornerFrame";
