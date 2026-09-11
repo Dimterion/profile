@@ -4,7 +4,7 @@ import { useContent } from "~/hooks/useContent";
 import { en } from "~/data/content/en";
 import { fr } from "~/data/content/fr";
 import ProjectCard from "~/components/shared/ProjectCard/ProjectCard";
-import ScrollToTopBottom from "~/components/ScrollToTopBottom/ScrollToTopBottom";
+import ScrollToTopBottom from "~/components/shared/ScrollToTopBottom/ScrollToTopBottom";
 import Pagination from "~/components/shared/Pagination/Pagination";
 
 function getCurrentLanguage() {

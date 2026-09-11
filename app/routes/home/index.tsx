@@ -4,7 +4,7 @@ import { parsePostsFromGlob } from "~/lib/posts";
 import { en } from "~/data/content/en";
 import { fr } from "~/data/content/fr";
 import SectionNav from "~/components/SectionNav/SectionNav";
-import ScrollToTopBottom from "~/components/ScrollToTopBottom/ScrollToTopBottom";
+import ScrollToTopBottom from "~/components/shared/ScrollToTopBottom/ScrollToTopBottom";
 import PageNav from "~/components/PageNav/PageNav";
 import SectionConnector from "~/components/shared/SectionConnector/SectionConnector";
 import Hero from "~/components/Hero/Hero";

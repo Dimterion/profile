@@ -5,7 +5,7 @@ import type { PostsMeta } from "~/types";
 import { useContent } from "~/hooks/useContent";
 import PostFilter from "~/components/PostFilter/PostFilter";
 import PostCard from "~/components/shared/PostCard/PostCard";
-import ScrollToTopBottom from "~/components/ScrollToTopBottom/ScrollToTopBottom";
+import ScrollToTopBottom from "~/components/shared/ScrollToTopBottom/ScrollToTopBottom";
 import Pagination from "~/components/shared/Pagination/Pagination";
 
 export async function loader() {
