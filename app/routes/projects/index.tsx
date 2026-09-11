@@ -1,11 +1,11 @@
 import { useState } from "react";
 import type { Route } from "./+types/index";
+import { useContent } from "~/hooks/useContent";
 import { en } from "~/data/content/en";
 import { fr } from "~/data/content/fr";
-import { useContent } from "~/hooks/useContent";
 import ProjectCard from "~/components/shared/ProjectCard/ProjectCard";
-import Pagination from "~/components/shared/Pagination/Pagination";
 import ScrollToTopBottom from "~/components/ScrollToTopBottom/ScrollToTopBottom";
+import Pagination from "~/components/shared/Pagination/Pagination";
 
 function getCurrentLanguage() {
   if (typeof window === "undefined") return "en";

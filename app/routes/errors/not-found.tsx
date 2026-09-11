@@ -1,6 +1,6 @@
 import { data, Link, useNavigate } from "react-router";
-import { ArrowLeftIcon } from "~/components/shared/icons";
 import type { Route } from "../contact/+types";
+import { ArrowLeftIcon } from "~/components/shared/icons";
 
 export function loader() {
   return data(null, { status: 404 });

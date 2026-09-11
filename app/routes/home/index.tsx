@@ -1,16 +1,16 @@
 import type { Route } from "./+types/index";
-import Hero from "~/components/Hero/Hero";
-import FeaturedProjects from "~/components/FeaturedProjects/FeaturedProjects";
-import LatestPosts from "~/components/LatestPosts/LatestPosts";
-import SectionConnector from "~/components/shared/SectionConnector/SectionConnector";
-import PageNav from "~/components/PageNav/PageNav";
-import SectionNav from "~/components/SectionNav/SectionNav";
-import ScrollToTopBottom from "~/components/ScrollToTopBottom/ScrollToTopBottom";
-import AboutPreview from "~/components/AboutPreview/AboutPreview";
 import { useContent } from "~/hooks/useContent";
 import { parsePostsFromGlob } from "~/lib/posts";
 import { en } from "~/data/content/en";
 import { fr } from "~/data/content/fr";
+import SectionNav from "~/components/SectionNav/SectionNav";
+import ScrollToTopBottom from "~/components/ScrollToTopBottom/ScrollToTopBottom";
+import PageNav from "~/components/PageNav/PageNav";
+import SectionConnector from "~/components/shared/SectionConnector/SectionConnector";
+import Hero from "~/components/Hero/Hero";
+import FeaturedProjects from "~/components/FeaturedProjects/FeaturedProjects";
+import LatestPosts from "~/components/LatestPosts/LatestPosts";
+import AboutPreview from "~/components/AboutPreview/AboutPreview";
 
 const postFiles = import.meta.glob<string>("../../data/blog/posts/*.md", {
   query: "?raw",

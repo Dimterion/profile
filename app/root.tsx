@@ -8,11 +8,10 @@ import {
   ScrollRestoration,
   useNavigate,
 } from "react-router";
-
 import type { Route } from "./+types/root";
 import "./app.css";
-import { ArrowLeftIcon } from "./components/shared/icons";
 import { LanguageProvider } from "~/context/LanguageContext";
+import { ArrowLeftIcon } from "./components/shared/icons";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },

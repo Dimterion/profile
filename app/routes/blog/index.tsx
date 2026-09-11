@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
-import type { Route } from "./+types";
-import { useContent } from "~/hooks/useContent";
-import PostCard from "~/components/shared/PostCard/PostCard";
-import Pagination from "~/components/shared/Pagination/Pagination";
-import PostFilter from "~/components/PostFilter/PostFilter";
 import matter from "gray-matter";
+import type { Route } from "./+types";
 import type { PostsMeta } from "~/types";
+import { useContent } from "~/hooks/useContent";
+import PostFilter from "~/components/PostFilter/PostFilter";
+import PostCard from "~/components/shared/PostCard/PostCard";
 import ScrollToTopBottom from "~/components/ScrollToTopBottom/ScrollToTopBottom";
+import Pagination from "~/components/shared/Pagination/Pagination";
 
 export async function loader() {
   const postFiles = import.meta.glob<string>("../../data/blog/posts/*.md", {

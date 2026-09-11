@@ -1,8 +1,8 @@
 import type { SiteLayoutProps } from "~/types";
-import Header from "../../components/Header/Header";
-import Footer from "~/components/Footer/Footer";
 import ParallaxBackground from "~/components/ParallaxBackground/ParallaxBackground";
 import LanguageToggle from "~/components/LanguageToggle/LanguageToggle";
+import Header from "~/components/Header/Header";
+import Footer from "~/components/Footer/Footer";
 
 export default function SiteLayout({
   children,

@@ -1,10 +1,8 @@
 import { data, Link } from "react-router";
 import ReactMarkdown from "react-markdown";
 import matter from "gray-matter";
-
 import type { Route } from "./+types/details";
 import type { BlogDetailsPageProps, PostsMeta } from "~/types";
-
 import { useContent } from "~/hooks/useContent";
 import { ArrowLeftIcon } from "~/components/shared/icons";
 
