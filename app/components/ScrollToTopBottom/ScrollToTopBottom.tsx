@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ChevronUpIcon, ChevronDownIcon } from "~/components/shared/icons";
+import { ChevronDownIcon, ChevronUpIcon } from "~/components/shared/icons";
 
 export default function ScrollToTopBottom({ gap }: { gap: string }) {
   const [atTop, setAtTop] = useState(true);

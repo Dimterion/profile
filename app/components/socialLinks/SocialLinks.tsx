@@ -1,7 +1,7 @@
 import {
   GithubIcon,
-  LinkedinIcon,
   InstagramIcon,
+  LinkedinIcon,
   MailIcon,
 } from "../shared/icons";
 

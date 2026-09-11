@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import DiamondNavLink from "../shared/DiamondNavLink/DiamondNavLink";
 import {
-  HammerIcon,
-  ScrollIcon,
-  PortraitFrameIcon,
-  FeatherIcon,
   CloseIcon,
+  FeatherIcon,
+  HammerIcon,
   MenuIcon,
+  PortraitFrameIcon,
+  ScrollIcon,
 } from "~/components/shared/icons";
 
 const navItems = [
