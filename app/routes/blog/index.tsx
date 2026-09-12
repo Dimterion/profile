@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import matter from "gray-matter";
 import type { Route } from "./+types";
-import type { PostsMeta } from "~/types";
+import type { Post } from "~/types";
 import { useContent } from "~/hooks/useContent";
 import PostFilter from "~/components/PostFilter/PostFilter";
 import PostCard from "~/components/shared/PostCard/PostCard";
@@ -15,13 +15,13 @@ export async function loader() {
     eager: true,
   });
 
-  function parsePostsByLang(lang: "en" | "fr"): PostsMeta[] {
-    const posts: PostsMeta[] = [];
+  function parsePostsByLang(lang: "en" | "fr"): Post[] {
+    const posts: Post[] = [];
 
     Object.entries(postFiles).forEach(([path, raw]) => {
       if (!path.endsWith(`.${lang}.md`)) return;
       const { data } = matter(raw as string);
-      posts.push(data as unknown as PostsMeta);
+      posts.push(data as unknown as Post);
     });
 
     return posts;

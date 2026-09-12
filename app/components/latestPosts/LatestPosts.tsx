@@ -1,4 +1,4 @@
-import type { PostsMeta } from "~/types";
+import type { Post } from "~/types";
 import { useContent } from "~/hooks/useContent";
 import CornerFrame from "../shared/CornerFrame/CornerFrame";
 import PostCard from "../shared/PostCard/PostCard";
@@ -8,7 +8,7 @@ export default function LatestPosts({
   posts,
   limit = 3,
 }: {
-  posts: PostsMeta[];
+  posts: Post[];
   limit?: number;
 }) {
   const { t } = useContent();

@@ -2,7 +2,7 @@ import { data, Link } from "react-router";
 import ReactMarkdown from "react-markdown";
 import matter from "gray-matter";
 import type { Route } from "./+types/details";
-import type { BlogDetailsPageProps, PostsMeta } from "~/types";
+import type { BlogDetailsPageProps, Post } from "~/types";
 import { useContent } from "~/hooks/useContent";
 import { ArrowLeftIcon } from "~/components/shared/icons";
 
@@ -40,10 +40,10 @@ export async function loader({ params }: Route.LoaderArgs) {
     throw data("Post not found", { status: 404 });
   }
 
-  const parsePost = (raw: string): PostsMeta => {
+  const parsePost = (raw: string): Post => {
     const { data, content } = matter(raw);
     return {
-      ...(data as unknown as PostsMeta),
+      ...(data as unknown as Post),
     };
   };
 

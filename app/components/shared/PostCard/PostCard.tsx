@@ -1,9 +1,9 @@
 import { Link } from "react-router";
-import type { PostsMeta } from "~/types";
+import type { Post } from "~/types";
 import { useContent } from "~/hooks/useContent";
 import { ArrowRightIcon } from "../icons";
 
-export default function PostCard({ post }: { post: PostsMeta }) {
+export default function PostCard({ post }: { post: Post }) {
   const { t } = useContent();
 
   const formattedDate = new Intl.DateTimeFormat("en-GB", {

@@ -1,19 +1,19 @@
 import matter from "gray-matter";
-import type { PostsMeta } from "~/types";
+import type { Post } from "~/types";
 
 type PostFiles = Record<string, string>;
 
 export function parsePostsFromGlob(
   postFiles: PostFiles,
   lang: "en" | "fr",
-): PostsMeta[] {
-  const posts: PostsMeta[] = [];
+): Post[] {
+  const posts: Post[] = [];
 
   Object.entries(postFiles).forEach(([path, raw]) => {
     if (!path.endsWith(`.${lang}.md`)) return;
 
     const { data } = matter(raw as string);
-    const post = data as unknown as PostsMeta;
+    const post = data as unknown as Post;
 
     if (!post || !post.date) return;
 
