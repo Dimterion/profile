@@ -14,7 +14,7 @@ export default function HomePage() {
         </p>
       </header>
 
-      <section className="mt-16">
+      <section id="projects" className="mt-16 scroll-mt-24">
         <SectionHeading
           title="Projects"
           description="A selection of web applications and projects I have built."
@@ -25,7 +25,7 @@ export default function HomePage() {
         </p>
       </section>
 
-      <section className="mt-16">
+      <section id="posts" className="mt-16 scroll-mt-24">
         <SectionHeading
           title="Latest posts"
           description="Recent articles published on Medium."
@@ -36,7 +36,7 @@ export default function HomePage() {
         </p>
       </section>
 
-      <section className="mt-16">
+      <section id="contact" className="mt-16 scroll-mt-24">
         <SectionHeading
           title="Contact"
           description="Get in touch about a project, question, or opportunity."
