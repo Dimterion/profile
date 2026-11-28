@@ -8,7 +8,11 @@ type ProjectCardProps = {
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <article className="rounded-lg border border-neutral-200 p-6 transition-colors hover:border-neutral-400 dark:border-neutral-800 dark:hover:border-neutral-600">
-      <h3 className="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+      <p className="text-xs text-neutral-600 dark:text-neutral-400">
+        {project.role} · {project.year}
+      </p>
+
+      <h3 className="mt-2 text-lg font-semibold text-neutral-900 dark:text-neutral-100">
         <Link
           href={`/projects/${project.slug}`}
           className="transition-colors hover:text-neutral-600 dark:hover:text-neutral-300"
