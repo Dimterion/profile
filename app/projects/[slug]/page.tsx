@@ -1,5 +1,7 @@
-import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { projects } from "@/lib/projects";
 
 type ProjectPageProps = {
@@ -12,6 +14,24 @@ export function generateStaticParams() {
   return projects.map((project) => ({
     slug: project.slug,
   }));
+}
+
+export async function generateMetadata({
+  params,
+}: ProjectPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const project = projects.find((item) => item.slug === slug);
+
+  if (!project) {
+    return {
+      title: "Project not found",
+    };
+  }
+
+  return {
+    title: `${project.title} | Dmitrii`,
+    description: project.summary,
+  };
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
@@ -31,26 +51,76 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         ← Back to projects
       </Link>
 
-      <h1 className="mt-6 text-3xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-100">
-        {project.title}
-      </h1>
+      <header className="mt-6">
+        <p className="text-sm text-neutral-600 dark:text-neutral-400">
+          {project.role} · {project.year}
+        </p>
 
-      <p className="mt-4 max-w-prose text-neutral-600 dark:text-neutral-400">
-        {project.summary}
-      </p>
+        <h1 className="mt-2 text-3xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-100">
+          {project.title}
+        </h1>
 
-      <ul className="mt-6 flex flex-wrap gap-2">
-        {project.technologies.map((technology) => (
-          <li
-            key={technology}
-            className="rounded-full border border-neutral-200 px-3 py-1 text-xs text-neutral-600 dark:border-neutral-800 dark:text-neutral-400"
-          >
-            {technology}
-          </li>
-        ))}
-      </ul>
+        <p className="mt-4 max-w-prose text-neutral-600 dark:text-neutral-400">
+          {project.summary}
+        </p>
+      </header>
 
-      <div className="mt-8 flex gap-4">
+      {project.imageUrl && project.imageAlt ? (
+        <div className="mt-8 overflow-hidden rounded-lg border border-neutral-200 dark:border-neutral-800">
+          <Image
+            src={project.imageUrl}
+            alt={project.imageAlt}
+            width={1200}
+            height={675}
+            className="h-auto w-full"
+            priority
+          />
+        </div>
+      ) : null}
+
+      <section className="mt-10">
+        <h2 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
+          About the project
+        </h2>
+
+        <p className="mt-3 max-w-prose text-neutral-600 dark:text-neutral-400">
+          {project.description}
+        </p>
+      </section>
+
+      <section className="mt-10">
+        <h2 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
+          Key features
+        </h2>
+
+        <ul className="mt-3 space-y-2 text-neutral-600 dark:text-neutral-400">
+          {project.features.map((feature) => (
+            <li key={feature} className="flex gap-2">
+              <span aria-hidden="true">•</span>
+              <span>{feature}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="mt-10">
+        <h2 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
+          Technologies
+        </h2>
+
+        <ul className="mt-3 flex flex-wrap gap-2">
+          {project.technologies.map((technology) => (
+            <li
+              key={technology}
+              className="rounded-full border border-neutral-200 px-3 py-1 text-xs text-neutral-600 dark:border-neutral-800 dark:text-neutral-400"
+            >
+              {technology}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="mt-10 flex flex-wrap gap-4">
         {project.liveUrl ? (
           <a
             href={project.liveUrl}
@@ -72,7 +142,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             View repository
           </a>
         ) : null}
-      </div>
+      </section>
     </article>
   );
 }
