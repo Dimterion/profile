@@ -1,4 +1,6 @@
+import { ProjectCard } from "@/components/ProjectCard";
 import { SectionHeading } from "@/components/SectionHeading";
+import { projects } from "@/lib/projects";
 
 export default function HomePage() {
   return (
@@ -20,9 +22,11 @@ export default function HomePage() {
           description="A selection of web applications and projects I have built."
         />
 
-        <p className="text-neutral-600 dark:text-neutral-400">
-          Project list will go here.
-        </p>
+        <div className="grid gap-6">
+          {projects.map((project) => (
+            <ProjectCard key={project.slug} project={project} />
+          ))}
+        </div>
       </section>
 
       <section id="posts" className="mt-16 scroll-mt-24">
